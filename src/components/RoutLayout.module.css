@@ -1,0 +1,43 @@
+.headerSection {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--bg-theme1);
+  color: #C0C4C6;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.navBar {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2.5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.navBarIcon {
+  font-size: 1.5rem;
+  color: #06F1D2;
+}
+
+.navBarSearchContainer {
+  display: flex;
+  align-items: center;
+  background-color: #2A2929;
+  border-radius: 1rem;
+  padding-right: 1rem;
+}
+
+.footerSection {
+  width: 95%;
+  margin: 0 auto;
+  background-color: var(--bg-theme1);
+  color: #fff;
+  padding: 0.75rem 0.75rem 3rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
