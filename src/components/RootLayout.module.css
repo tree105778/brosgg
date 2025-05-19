@@ -1,10 +1,10 @@
 .headerSection {
   display: flex;
-  padding: 1rem;
+  padding: 0.75rem;
   align-items: center;
   justify-content: space-around;
   background-color: var(--bg-theme1);
-  color: #C0C4C6;
+  color: var(--text-theme1);
   width: 95%;
   margin: 0 auto;
 }
@@ -14,14 +14,23 @@
   padding: 1rem;
   align-items: center;
   justify-content: space-around;
-  gap: 2.5rem;
-  margin-left: 3rem;
+  gap: 2rem;
+  margin-left: 1.5rem;
   margin-right: 3rem;
+  font-weight: bold;
 }
 
 .navBarIcon {
   font-size: 1.5rem;
-  color: #06F1D2;
+  color: var(--bg-theme2);
+  background-image: url("/logo.png");
+  background-position: 0 50%;
+  background-size: cover;
+  object-fit: cover;
+  width: 10rem;
+  height: 3rem;
+  position: relative;
+  line-height: 100%;
 }
 
 .navBarSearchContainer {

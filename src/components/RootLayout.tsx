@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import styles from './RoutLayout.module.css';
+import styles from './RootLayout.module.css';
 import { Input } from '@/components/ui/input';
 import {
   Select,
@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <div className={styles.headerSection}>
-        <div className={styles.navBarIcon}>BROS.GG</div>
+        <div className={styles.navBarIcon} />
         <nav className={styles.navBar}>
           <div>HOME</div>
           <div>메타 추천</div>
@@ -30,7 +30,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <SelectValue placeholder="KR" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="KR">KR</SelectItem>
+              <SelectItem defaultChecked value="KR">
+                KR
+              </SelectItem>
               <SelectItem value="NA">NA</SelectItem>
               <SelectItem value="EU">EU</SelectItem>
             </SelectContent>
@@ -43,8 +45,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           />
           <Search />
         </div>
-        <Moon className="text-[#06efd0] size-[2.4rem]" />
-        <Globe className="text-[#06efd0] size-[2.4rem]" />
+        <Moon className="text-[#06efd0] size-[2.5rem] m-0" />
+        <Globe className="text-[#06efd0] size-[2.5rem] m-0" />
       </div>
       {children}
       <div className={styles.footerSection}>
