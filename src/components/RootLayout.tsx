@@ -9,6 +9,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Globe, Moon, Search } from 'lucide-react';
+import Link from 'next/link';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -21,7 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div>랭킹</div>
           <div>게임가이드</div>
           <div>패치노트</div>
-          <div>배치툴</div>
+          <Link href={'/builder'}>배치툴</Link>
           <div>커뮤니티</div>
         </nav>
         <div className={styles.navBarSearchContainer}>
@@ -45,8 +46,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           />
           <Search />
         </div>
-        <Moon className="text-[#06efd0] size-[2.5rem] m-0" />
-        <Globe className="text-[#06efd0] size-[2.5rem] m-0" />
+        <div className={styles.navBarIconContainer}>
+          <Moon className="text-[#06efd0] size-[2.5rem] m-0" />
+          <Globe className="text-[#06efd0] size-[2.5rem] m-0" />
+        </div>
       </div>
       {children}
       <div className={styles.footerSection}>

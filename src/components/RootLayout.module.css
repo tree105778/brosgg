@@ -13,11 +13,12 @@
   display: flex;
   padding: 1rem;
   align-items: center;
-  justify-content: space-around;
+  /*justify-content: space-around;*/
   gap: 2rem;
-  margin-left: 1.5rem;
-  margin-right: 3rem;
+  margin-left: 3rem;
+  margin-right: 1rem;
   font-weight: bold;
+  flex: 1;
 }
 
 .navBarIcon {
@@ -39,6 +40,13 @@
   background-color: #2A2929;
   border-radius: 1rem;
   padding-right: 1rem;
+}
+
+.navBarIconContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
 }
 
 .footerSection {

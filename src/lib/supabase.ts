@@ -11,3 +11,9 @@ export async function fetchChampionsS14Data() {
 
   return champions;
 }
+
+export async function fetchItemS14Data() {
+  const { data: itmes } = await supabase.from('items').select();
+
+  return itmes;
+}
