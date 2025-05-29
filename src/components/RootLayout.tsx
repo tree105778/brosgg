@@ -8,16 +8,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Globe, Moon, Search } from 'lucide-react';
+import { Globe, Menu, Moon, Search } from 'lucide-react';
 import Link from 'next/link';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <div className={styles.headerSection}>
-        <div className={styles.navBarIcon} />
+        <Link href={'/'} className={styles.navBarIcon} />
         <nav className={styles.navBar}>
-          <div>HOME</div>
+          <Link href={'/'}>HOME</Link>
           <div>메타 추천</div>
           <div>랭킹</div>
           <div>게임가이드</div>
@@ -49,6 +55,36 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className={styles.navBarIconContainer}>
           <Moon className="text-[#06efd0] size-[2.5rem] m-0" />
           <Globe className="text-[#06efd0] size-[2.5rem] m-0" />
+        </div>
+        <div className={styles.dropdownMenu}>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Menu size={40} />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-6 text-2xl bg-white">
+              <DropdownMenuItem>
+                <Link href={'/'}>HOME</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <div>메타 추천</div>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <div>랭킹</div>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <div>게임가이드</div>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <div>패치노트</div>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={'/builder'}>배치툴</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <div>커뮤니티</div>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
       {children}
