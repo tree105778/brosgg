@@ -1,0 +1,128 @@
+.builderInfoHeaderSection {
+  width: 95%;
+  background-color: var(--bg-theme4);
+  color: white;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.builderInfoHeaderSection h1 {
+  color: var(--text-theme2);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.builderMainSection {
+  width: 70%;
+  margin: 4.5rem auto 1rem;
+}
+
+.builderFirstHeaderSection {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.headerCommonBtn {
+  background-color: var(--bg-theme3);
+  text-align: center;
+  color: var(--text-theme1);
+  border-radius: 0.25rem;
+  box-sizing: content-box;
+  width: 6rem;
+  padding: 1rem;
+}
+
+.firstHeaderSnsBtn {
+  display: flex;
+  gap: 6px;
+}
+
+.firstHeaderSnsUploadBtn {
+  background-color: var(--bg-theme2);
+  text-align: center;
+  width: 6rem;
+  box-sizing: content-box;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.builderSecondHeaderSection {
+  margin: 2rem 0 0;
+  display: flex;
+  gap: 6px;
+}
+
+.secondHeaderInitialBtn {
+  display: flex;
+  background-color: var(--bg-theme3);
+  color: var(--text-theme1);
+  border-radius: 0.25rem;
+  box-sizing: content-box;
+  width: 6rem;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 1rem;
+}
+
+.secondHeaderCommonBtn {
+  width: 7rem;
+  padding: 1rem 0.5rem;
+  background-color: var(--bg-theme3);
+  color: var(--text-theme1);
+  border-radius: 0.25rem;
+  box-sizing: content-box;
+  text-align: center;
+}
+
+.traitSynergyInfoTab {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.argumentInputWrapper {
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(9, 5rem);
+  grid-gap: 10px;
+  grid-auto-rows: 5rem;
+  width: fit-content;
+}
+
+.argumentInputWrapper > div {
+  border: 2px solid #373737;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.builderBoardContainerWrapper {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.builderBoardContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 100px);
+  grid-template-rows: repeat(4, 100px);
+  gap: 0 0.25rem;
+  width: fit-content;
+  margin: 0 auto;
+  transform: translateX(-25px);
+}
+
+.hexagonWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.offset {
+  transform: translateX(50%);
+}

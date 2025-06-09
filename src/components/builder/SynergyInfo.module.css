@@ -1,0 +1,26 @@
+.synergyInfoWrapper {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin: 2rem 0.25rem;
+  flex-shrink: 0;
+}
+
+.synergyImageHexagonWrapper {
+  width: 2rem;
+  height: 2.25rem;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.synergyDetailInfoWrapper {
+  display: flex;
+  justify-content: space-between;
+  min-width: 60px;
+  gap: 1rem;
+  background-color: #2E2E2E;
+  font-weight: bold;
+  padding: 0 0 0 0.4rem;
+}

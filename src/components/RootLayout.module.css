@@ -75,12 +75,12 @@
   }
 
   .navBar {
-    justify-content: space-evenly;
-    margin: 0;
+    justify-content: flex-start;
+    margin-right: 0;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .navBarIconContainer {
     display: none;
   }
@@ -91,7 +91,7 @@
   }
 }
 
-@media (max-width: 840px) {
+@media (max-width: 860px) {
   .navBar {
     display: none;
   }

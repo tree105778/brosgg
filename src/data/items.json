@@ -1,0 +1,457 @@
+[
+  {
+    "id": 1,
+    "name": "B.F. 대검",
+    "type": "BASE",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/B.F._Sword.png",
+    "effects": "+10% 공격력"
+  },
+  {
+    "id": 2,
+    "name": "쇠사슬 조끼",
+    "type": "BASE",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Chain_Vest.png",
+    "effects": "+20 방어력"
+  },
+  {
+    "id": 3,
+    "name": "거인의 허리띠",
+    "type": "BASE",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Giant's_Belt.png",
+    "effects": "+150 체력"
+  },
+  {
+    "id": 4,
+    "name": "쓸데없이 큰 지팡이",
+    "type": "BASE",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Needlessly_Large_Rod.png",
+    "effects": "+10 주문력"
+  },
+  {
+    "id": 5,
+    "name": "곡궁",
+    "type": "BASE",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Recurve_Bow.png",
+    "effects": "+10% 공격 속도"
+  },
+  {
+    "id": 6,
+    "name": "여신의 눈물",
+    "type": "BASE",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Tear_of_the_Goddess.png",
+    "effects": "+15 시작 마나"
+  },
+  {
+    "id": 7,
+    "name": "음전자 망토",
+    "type": "BASE",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Negatron_Cloak.png",
+    "effects": "+20 마법 저항력"
+  },
+  {
+    "id": 8,
+    "name": "연습용 장갑",
+    "type": "BASE",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Sparring_Gloves.png",
+    "effects": "+20% 치명타 확률"
+  },
+  {
+    "id": 9,
+    "name": "뒤집개",
+    "type": "BASE",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Spatula.png",
+    "effects": "특성 변경"
+  },
+  {
+    "id": 10,
+    "name": "프라이팬",
+    "type": "SPECIAL",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Frying_Pan.png",
+    "effects": "???"
+  },
+  {
+    "id": 11,
+    "name": "죽음의 검",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Deathblade.png",
+    "effects": "10%의 추가 피해량"
+  },
+  {
+    "id": 12,
+    "name": "밤의 끝자락",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Edge_of_Night.png",
+    "effects": "전투당 한 번: 체력이 60%일 때 잠시 대상으로 지정할 수 없는 상태가 되며 해로운 효과 제거. 이후 추가 공격 속도 15% 획득."
+  },
+  {
+    "id": 13,
+    "name": "스테락의 도전",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Sterak's_Gage.png",
+    "effects": "전투 당 한 번, 체력이 60%일 때 최대 체력 25% 및 공격력 35% 증가"
+  },
+  {
+    "id": 14,
+    "name": "마법공학 총검",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Hextech_Gunblade.png",
+    "effects": "모든 피해 흡혈 15% 획득. 입힌 피해의 25%만큼 체력 비율이 가장 낮은 아군의 체력 회복"
+  },
+  {
+    "id": 15,
+    "name": "거인 학살자",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Giant_Slayer.png",
+    "effects": "피해량 5% 증가, 최대 체력이 1750 이상인 적에게 피해량 15% 증가"
+  },
+  {
+    "id": 16,
+    "name": "쇼진의 창",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Spear_of_Shojin.png",
+    "effects": "기본 공격 시 추가 마나 5 획득"
+  },
+  {
+    "id": 17,
+    "name": "피바라기",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Bloodthirster.png",
+    "effects": "모든 피해 흡혈 20% 획득 전투당 한 번: 체력이 40%일 때 최대 체력의 25%에 해당하는 보호막 획득 후 최대 5초까지 유지"
+  },
+  {
+    "id": 18,
+    "name": "무한의 대검",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Infinity_Edge.png",
+    "effects": "스킬에 치명타 적용 가능 기본 스킬에 치명타 적용이 가능한 경우, 대신에 치명타 피해량이 10% 증가"
+  },
+  {
+    "id": 19,
+    "name": "덤불 조끼",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Bramble_Vest.png",
+    "effects": "7%의 최대 체력 획득 기본 공격으로 받는 피해 8% 감소. 기본 공격에 맞을 경우 인접한 모든 적에게 100의 마법 피해 재사용 대기시간: 2초"
+  },
+  {
+    "id": 20,
+    "name": "태양불꽃 망토",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Sunfire_Cape.png",
+    "effects": "8%의 최대 체력 획득 [고유] 2초마다 2칸 내에 있는 적 하나에게 10초 동안 1% 불태우기 및 33% 상처 적용불태우기: 매초 대상최대 체력의 일정 비율만큼 고정 피해 상처: 체력 회복량 감소"
+  },
+  {
+    "id": 21,
+    "name": "크라운가드",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Crownguard.png",
+    "effects": "전투 시작 시 8초 동안 최대 체력의 25%에 해당하는 보호막을 획득합니다. 보호막이 파괴되면 주문력이 25 증가합니다."
+  },
+  {
+    "id": 22,
+    "name": "거인의 결의",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Titan's_Resolve.png",
+    "effects": "공격하거나 피해를 받으면 공격력 2% 및 주문력 2 획득 (최대 25회 중첩) 최대 중첩 시 방어력 롤아이콘-물리방어력 신규 및 마법 저항력 롤아이콘-마법저항력 신규 20 획득"
+  },
+  {
+    "id": 23,
+    "name": "수호자의 맹세",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Gargoyle_Stoneplate.png",
+    "effects": "전투당 한 번: 체력이 40%일 때 최대 체력의 25%에 해당하는 보호막 획득 후 5초 동안 유지. 동시에 방어력 20, 마법 저항력 20 획득"
+  },
+  {
+    "id": 24,
+    "name": "가고일 돌갑옷",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Gargoyle_Stoneplate.png",
+    "effects": "적의 공격 대상이 되면 방어력이 10, 마법 저항력이 10 증가. 공격하는 적이 늘어나면 중첩되어 적용."
+  },
+  {
+    "id": 25,
+    "name": "굳건한 심장",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Steadfast_Heart.png",
+    "effects": "받는 피해 8% 감소. 체력이 50%보다 많을 때 받는 피해 15% 감소."
+  },
+  {
+    "id": 26,
+    "name": "워모그의 갑옷",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Warmog's_Armor.png",
+    "effects": "12%의 최대 체력 획득"
+  },
+  {
+    "id": 27,
+    "name": "모렐로노미콘",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Morellonomicon.png",
+    "effects": "[고유] 기본 공격과 스킬 피해를 입힐 경우 대상에게 10초 동안 1% 불태우기 및 33% 상처 적용 불태우기: 매초 대상 최대 체력의 일정 비율만큼 고정 피해 상처: 체력 회복량 감소"
+  },
+  {
+    "id": 28,
+    "name": "내셔의 이빨",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Nashor's_Tooth.png",
+    "effects": "스킬 사용 후 5초 동안 공격 속도 60% 증가"
+  },
+  {
+    "id": 29,
+    "name": "구원",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Redemption.png",
+    "effects": "5초마다 1칸 내에 있는 아군의 체력을 대상이 잃은 체력의 15%만큼 회복. 또한 효과를 받은 아군은 5초동안 공격으로 입는 피해량이 10% 감소 (피해량 감소는 중첩되지 않음)"
+  },
+  {
+    "id": 30,
+    "name": "저녁갑주",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Dusk_Armor.png",
+    "effects": "2칸 내에 있는 적을 30% 파열. 전투 시작 후 15초 동안 방어력과 마법 저항력 25 증가 파열: 방어력 감소"
+  },
+  {
+    "id": 31,
+    "name": "방패파괴자",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Last_Whisper.png",
+    "effects": "피해량 증가 10%, 보호막이 있는 적 공격 후 3초 동안 스킬 및 기본 공격 피해량 15% 증가"
+  },
+  {
+    "id": 32,
+    "name": "라바돈의 죽음모자",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Rabadon's_Deathcap.png",
+    "effects": "15%의 추가 피해량"
+  },
+  {
+    "id": 33,
+    "name": "구인수의 격노검",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Guinsoo's_Rageblade.png",
+    "effects": "기본 공격 시 추가 공격 속도 5% 증가 (중첩 가능)"
+  },
+  {
+    "id": 34,
+    "name": "대천사의 지팡이",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Archangel's_Staff.png",
+    "effects": "전투 시작: 전투 중 5초마다 주문력 30 증가"
+  },
+  {
+    "id": 35,
+    "name": "이온 충격기",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Ionic_Spark.png",
+    "effects": "2칸 내에 있는 모든 적 파쇄 30%. 해당 적이 스킬 사용 시 최대 마나의 160%에 해당하는 마법 피해를 입음 파쇄: 마법 저항력 감소"
+  },
+  {
+    "id": 36,
+    "name": "보석 건틀릿",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Jeweled_Gauntlet.png",
+    "effects": "스킬에 치명타 롤아이콘-치명타확률 적용 가능 기본 스킬에 치명타 적용이 가능한 경우 피해량이 10% 증가"
+  },
+  {
+    "id": 37,
+    "name": "붉은 덩굴정령",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Red_Brambleback.png",
+    "effects": "3%의 추가 피해량 기본 공격과 스킬 사용 시 적에게 5초동안 1%의 불태우기와 33% 상처 적용. 매초 대상 최대 체력의 일정 비율만큼 고정 피해 상처: 체력 회복량 감소"
+  },
+  {
+    "id": 38,
+    "name": "스태틱의 단검",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Statikk_Shiv.png",
+    "effects": "3번째 기본 공격마다 적 4명에게 35의 마법 피해를 입히고 5초 동안 30% 파쇄 파쇄: 마법 저항력 감소"
+  },
+  {
+    "id": 39,
+    "name": "루난의 허리케인",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Runaan's_Hurricane.png",
+    "effects": "기본 공격 시 주변 적 하나에게 탄환을 발사하여 공격력의 60%만큼 물리 피해"
+  },
+  {
+    "id": 40,
+    "name": "최후의 속삭임",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Last_Whisper.png",
+    "effects": "[고유] 물리 피해를 입힐 경우 3초 동안 30% 파열 (중첩 불가) 파열: 방어력 감소"
+  },
+  {
+    "id": 41,
+    "name": "푸른 파수꾼",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Blue_Sentinel.png",
+    "effects": "스킬 사용 후 마나 롤아이콘-마나 10 회복. 장착한 유닛이 처치 관여 시 8초동안 5%의 추가 피해 [고유 - 중복 적용 불가]"
+  },
+  {
+    "id": 42,
+    "name": "적응형 투구",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Adaptive_Helm.png",
+    "effects": "전투 시작: 시작 위치에 따라 추가 효과 획득 전방 2열: 방어력, 마법 저항력 40 증가, 기본 공격에 맞으면 마나 1 획득 후방 2열: 주문력 15 증가, 3초마다 마나 10 획득"
+  },
+  {
+    "id": 43,
+    "name": "정의의 손길",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Hand_of_Justice.png",
+    "effects": "2가지 효과 획득: - 공격력 +15% 및 주문력 +15 - 모든 피해 흡혈 12% 체력이 50%를 넘을 때 공격력 및 주문력이 두 배로 증가,체력이 50% 아래일 때 모든 피해 흡혈이 두 배로 증가 모든 피해 흡혈: 입힌 피해의 일부만큼 체력 회복"
+  },
+  {
+    "id": 44,
+    "name": "용의 발톱",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Dragon's_Claw.png",
+    "effects": "9%의 최대 체력 획득 2초마다 최대 체력의 2.5% 회복"
+  },
+  {
+    "id": 45,
+    "name": "수은",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Quicksilver.png",
+    "effects": "전투 시작: 18초 동안 군중 제어 효과에 면역. 지속시간 동안 2초마다 3%의 공격 속도 롤아이콘-공격속도 신규 획득 [고유 - 중복 적용 불가]"
+  },
+  {
+    "id": 46,
+    "name": "도적의 장갑",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Thief's_Gloves.png",
+    "effects": "매 라운드: 무작위 아이템 2개 장착"
+  },
+  {
+    "id": 47,
+    "name": "전략가의 왕관",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Tactician's_Crown.png",
+    "effects": "아군의 최대 팀 규모 +1 증가 전투 승리 시 1골드를 획득할 확률 10%"
+  },
+  {
+    "id": 48,
+    "name": "전략가의 망토",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Tactician's_Cloak.png",
+    "effects": "아군의 최대 팀 규모 +1 증가 전투 승리 시 1골드를 획득할 확률 10%"
+  },
+  {
+    "id": 49,
+    "name": "전략가의 방패",
+    "type": "COMBINED",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Tactician's_Shield.png",
+    "effects": "아군의 최대 팀 규모 +1 증가 전투 승리 시 1골드를 획득할 확률 10%"
+  },
+  {
+    "id": 50,
+    "name": "책략가 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Strategist_Emblem.png",
+    "effects": "공격력 10%, [고유] 장착 시 정복자 특성 획득"
+  },
+  {
+    "id": 51,
+    "name": "신성기업 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Divinicorp_Emblem.png",
+    "effects": "방어력 +20, [고유] 장착 시 집행자 특성 획득"
+  },
+  {
+    "id": 52,
+    "name": "폭발 봇 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Boombots_Emblem.png",
+    "effects": "체력 +150, [고유] 장착 시 실험체 특성 획득"
+  },
+  {
+    "id": 53,
+    "name": "범죄 조직 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Syndicate_Emblem.png",
+    "effects": "주문력 +10, [고유] 장착 시 검은 장미단 특성 획득"
+  },
+  {
+    "id": 54,
+    "name": "거리의 악마 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/StreetDemon_Emblem.png",
+    "effects": "공격속도 10%, [고유] 장착 시 반군 특성 획득"
+  },
+  {
+    "id": 55,
+    "name": "동물특공대 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/AnimaSquad_Emblem.png",
+    "effects": "마나 + 15, [고유] 장착 시 가족 특성 획득"
+  },
+  {
+    "id": 56,
+    "name": "황금 황소 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/GoldenOx_Emblem.png",
+    "effects": "마법저항력 + 20, [고유] 장착 시 자동기계 특성 획득"
+  },
+  {
+    "id": 57,
+    "name": "엑소테크 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Exotech_Emblem.png",
+    "effects": "치명타 확률 + 20%, [고유] 장착 시 점화단 특성 획득"
+  },
+  {
+    "id": 58,
+    "name": "사격수 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Marksman_Emblem.png",
+    "effects": "공격력 + 10%, [고유] 장착 시 포수 특성 획득"
+  },
+  {
+    "id": 59,
+    "name": "속사포 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Rapidfire_Emblem.png",
+    "effects": "방어력 + 20, [고유] 장착 시 감시자 특성 획득"
+  },
+  {
+    "id": 60,
+    "name": "요새 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Bastion_Emblem.png",
+    "effects": "체력 + 150, [고유] 장착 시 난동꾼 특성 획득"
+  },
+  {
+    "id": 61,
+    "name": "학살자 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Slayer_Emblem.png",
+    "effects": "주문력 + 10, [고유] 장착 시 마법사 특성 획득"
+  },
+  {
+    "id": 62,
+    "name": "기술광 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Techie_Emblem.png",
+    "effects": "공격속도 + 10%, [고유] 장착 시 기동타격대 특성 획득"
+  },
+  {
+    "id": 63,
+    "name": "다이나모 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Dynamo_Emblem.png",
+    "effects": "마나 + 15, [고유] 장착 시 선도자 특성 획득"
+  },
+  {
+    "id": 64,
+    "name": "난동꾼 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Bruiser_Emblem.png",
+    "effects": "마법 저항력 + 20, [고유] 장착 시 투사특성 획득"
+  },
+  {
+    "id": 65,
+    "name": "처형자 상징",
+    "type": "EMBLEM",
+    "image": "https:\/\/gwwwhrtvwejvtwfxyugb.supabase.co\/storage\/v1\/object\/public\/items\/image\/Executioner_Emblem.png",
+    "effects": "치명타 확률 + 20%, [고유] 장착 시 매복자 특성 획득"
+  }
+]

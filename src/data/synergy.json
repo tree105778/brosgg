@@ -1,0 +1,560 @@
+{
+  "set": "세트 14",
+  "traits": [
+    {
+      "name": "거리의 악마",
+      "description": "색칠된 칸에 배치된 아군은 체력, 주문력, 공격력을 얻습니다. 일부 칸은 시그니처 칸으로, 50%의 추가 효과를 부여합니다. 거리의 악마는 모든 추가 효과를 두 배로 얻습니다.",
+      "default_image": "/synergy/StreetDemon.png",
+      "activation": [
+        {
+          "unit_count": 3,
+          "effect": "체력 +6%, 주문력 6%, 공격력 6%",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 5,
+          "effect": "체력 +10%, 주문력 10%, 공격력 10%",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 7,
+          "effect": "체력 +15%, 주문력 15%, 공격력 15%",
+          "color": "gold"
+        },
+        {
+          "unit_count": 10,
+          "effect": "**체력 +40%, 주문력 50%, 공격력 50%. 온 동네를 물들여라!** 맵 전체에 스프레이를 뿌리는 특수 모션 출력, 시그니처 칸 사라짐, 기물 어디에 두어도 효과 받음",
+          "color": "#E5E4E2"
+        }
+      ]
+    },
+    {
+      "name": "니트로",
+      "description": "매 라운드마다, 니트로는 R-080T에게 크롬을 부여합니다. 크롬은 니트로의 별 레벨이 높을 수록 더 많이 부여합니다. 크롬 1개당 체력을 14, 주문력을 1 얻습니다. 크롬이 200개에 도달하면, T-43X로 업그레이드됩니다!",
+      "default_image": "/synergy/Nitro.png",
+      "activation": [
+        {
+          "unit_count": 3,
+          "effect": "R-080T 소환! 별 레벨당 크롬: 2/3/5/7",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 4,
+          "effect": "거대한 레이저 발사!",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "동물특공대",
+      "description": "특성 활성화 단계가 올라가면, 전투 중에 무작위 동물특공대가 주기적으로 발사할 무기를 선택합니다. 동물특공대는 방어력, 마법 저항력, 피해 증폭을 얻습니다. 무기는 동물특공대의 별 레벨과 스테이지에 따라 강해집니다.",
+      "default_image": "/synergy/AnimaSquad.png",
+      "activation": [
+        {
+          "unit_count": 3,
+          "effect": "방어력 및 마법 저항력 10, 피해 증폭 5%, 무기 선택",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 5,
+          "effect": "방어력 및 마법 저항력 25, 피해 증폭 10%, 무기 선택",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 7,
+          "effect": "방어력 및 마법 저항력 35, 피해 증폭 15%, 무기 선택",
+          "color": "gold"
+        },
+        {
+          "unit_count": 10,
+          "effect": "**방어력 및 마법 저항력 75, 피해 증폭 100%, 궁극의 무기 선택**",
+          "color": "#E5E4E2"
+        }
+      ]
+    },
+    {
+      "name": "범죄 조직",
+      "description": "범죄 조직의 스킬을 특별하게 업그레이드하는 범죄 두목 모자를 얻습니다. 범죄 조직은 체력과 피해 증폭을 얻습니다.",
+      "default_image": "/synergy/Syndicate.png",
+      "activation": [
+        {
+          "unit_count": 3,
+          "effect": "체력 100, 피해 증폭 5%, 범죄 두목 모자 1개",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 5,
+          "effect": "체력 400, 피해 증폭 15%, 범죄 두목 모자 2개",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 7,
+          "effect": "**체력 500, 피해 증폭 20%, 범죄 두목 효과 업그레이드**",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "사이버보스",
+      "description": "가장 강한 사이버보스가 최종 형태로 업그레이드 되어 체력과 주문력을 얻고, 스킬이 더 많은 적들에게 피해를 입힙니다.",
+      "default_image": "/synergy/Cyberboss.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "체력 25%, 주문력 20",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 3,
+          "effect": "체력 33%, 주문력 30",
+          "color": "gold"
+        },
+        {
+          "unit_count": 4,
+          "effect": "**모든 사이버보스 업그레이드, 가장 강한 아군 사이버보스 유닛이 체력 40% 및 주문력 40 획득**",
+          "color": "#E5E4E2"
+        }
+      ]
+    },
+    {
+      "name": "사이퍼",
+      "description": "전투에서 패배할 때 첩보를 얻으며, 연패가 지속될수록 획득 첩보가 증가합니다. 적을 처치할 때마다 소량의 첩보를 얻을 수 있습니다. 첩보는 3-3, 3-7, 4-3 또는 4-7 라운드 중 한 번만 교환할 수 있습니다. 첩보를 교환한 후, 사이퍼는 공격력과 주문력을 얻습니다.",
+      "default_image": "/synergy/Cypher.png",
+      "activation": [
+        {
+          "unit_count": 3,
+          "effect": "첩보 1x, 공격력/주문력 증가 25%",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 4,
+          "effect": "첩보 1.5x, 공격력/주문력 증가 35%",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 5,
+          "effect": "첩보 2x, 공격력/주문력 증가 50%",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "신성기업",
+      "description": "아군에게 추가 효과를 부여합니다. 전장에 배치된 신성기업 수에 따라 추가 효과가 증가합니다. 신성기업은 효과를 두 배로 얻습니다. (모르가나 - 주문력 +9%, 라아스트 - 방어력 및 마법 저항력 +6, 세나 - 공격력 +8%, 그라가스 - 체력 +50, 벡스 - 치명타 확률 +7%, 레넥톤 - 공격 속도 +5%, 상징 - 모든 피해 흡혈 +3%)",
+      "default_image": "/synergy/Divinicorp.png",
+      "activation": [
+        {
+          "unit_count": 1,
+          "effect": "추가 효과 100%",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 2,
+          "effect": "추가 효과 110%",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 3,
+          "effect": "추가 효과 125%",
+          "color": "gold"
+        },
+        {
+          "unit_count": 4,
+          "effect": "추가 효과 140%",
+          "color": "#E5E4E2"
+        },
+        {
+          "unit_count": 5,
+          "effect": "추가 효과 160%",
+          "color": "#E5E4E2"
+        },
+        {
+          "unit_count": 6,
+          "effect": "추가 효과 180%",
+          "color": "#E5E4E2"
+        },
+        {
+          "unit_count": 7,
+          "effect": "**추가 효과 200%**",
+          "color": "#E5E4E2"
+        }
+      ]
+    },
+    {
+      "name": "엑소테크",
+      "description": "엑소테크만 착용할 수 있는 고유 아이템을 획득합니다. 장착한 아이템마다 체력과 공격 속도를 얻습니다.",
+      "default_image": "/synergy/Exotech.png",
+      "activation": [
+        {
+          "unit_count": 3,
+          "effect": "체력 +50, 공격 속도 +2%, 엑소테크 아이템 #1",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 5,
+          "effect": "체력 +150, 공격 속도 +5%, 엑소테크 아이템 #2",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 7,
+          "effect": "체력 +225, 공격 속도 +9%, 엑소테크 아이템 #3",
+          "color": "gold"
+        },
+        {
+          "unit_count": 10,
+          "effect": "**체력 +500, 공격 속도 +40%, 모든 엑소테크 아이템** (7가지의 엑소테크 아이템을 전부 찬란한 아이템으로 받음)",
+          "color": "#E5E4E2"
+        }
+      ]
+    },
+    {
+      "name": "폭발 봇",
+      "description": "폭발 봇이 적에게 400의 피해를 입힐 때마다 인접한 적에게 마법 피해를 주는 미사일을 발사합니다. 받은 피해의 8%만큼 추가 피해를 입힙니다.",
+      "default_image": "/synergy/BoomBots.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "마법 피해 150",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 4,
+          "effect": "마법 피해 325",
+          "color": "gold"
+        },
+        {
+          "unit_count": 6,
+          "effect": "**두 개의 미사일을 발사하며, 각 미사일은 마법 피해를 225 입힙니다.**",
+          "color": "#E5E4E2"
+        }
+      ]
+    },
+    {
+      "name": "황금 황소",
+      "description": "황금 황소는 피해 증폭을 얻고 처치 시 골드를 획득할 수 있습니다. 한 턴에 8골드를 새로고침 또는 경험치 구매에 사용하면 영구적으로 피해 증폭을 얻고, 다음 효과 획득에 필요한 골드가 증가합니다. 새로고침에 사용한 골드는 두 배로 계산됩니다. (황금 황소가 지난 라운드에 전투에 참가해야 적용됩니다.)",
+      "default_image": "/synergy/GoldenOx.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "피해 증폭 13%, 골드 20%",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 4,
+          "effect": "피해 증폭 20%, 골드 50%",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 6,
+          "effect": "**피해 증폭 25%, 전리품 100%, 전리품이 조합 아이템일 확률 7%**",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "군주",
+      "description": "(1) 군주가 자신의 후방에 배치된 유닛을 물어뜯어 최대 체력의 40%만큼 고정 피해를 입힙니다. 군주는 대상의 체력을 40%, 공격력을 25% 얻습니다. (레넥톤 고유)",
+      "default_image": "/synergy/Overlord.png",
+      "activation": [
+        {
+          "unit_count": 1,
+          "effect": "효과 활성화",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "네트워크의 신",
+      "description": "(1) 플레이어 대상 전투를 2회 치른 후, 특성 개조체 무기고를 열어 챔피언이 특성 효과를 받도록 영구적으로 재프로그래밍합니다. 이 특성은 특성 중첩에 영향을 주지 않습니다. 특성 개조체 무기고가 열릴 때마다, 다음 특성 개조체 무기고까지 필요한 라운드가 1라운드씩 증가합니다. (가렌 고유)",
+      "default_image": "/synergy/GodoftheNet.png",
+      "activation": [
+        {
+          "unit_count": 1,
+          "effect": "효과 활성화",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "바이러스",
+      "description": "(1) 바이러스가 상점을 감염시켜 10% 확률로 조각이 생성됩니다. 구매 시, 조각이 가장 강한 자크에게 합쳐져 최대 체력을 3%, 주문력을 4 부여합니다. 조각은 10,005개까지만 생성됩니다. (자크 고유)",
+      "default_image": "/synergy/Virus.png",
+      "activation": [
+        {
+          "unit_count": 1,
+          "effect": "효과 활성화",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "영혼 살해자",
+      "description": "(1) 지난 라운드에서 비에고가 처치에 관여한 적 중 단계가 가장 높은 적의 홀로그램 복사본을 획득합니다. 홀로그램은 900 / 1350 / 9001의 체력을 갖고 30 / 40 / 200%의 피해를 입히며 추천 아이템 1개를 갖습니다. (비에고 고유)",
+      "default_image": "/synergy/SoulKiller.png",
+      "activation": [
+        {
+          "unit_count": 1,
+          "effect": "효과 활성화",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "기술광",
+      "description": "기술광이 주문력을 얻습니다. 기술광의 스킬에 적중당한 적이 입히는 피해량이 3초 동안 10% 감소합니다.",
+      "default_image": "/synergy/Techie.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "주문력 20",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 4,
+          "effect": "주문력 50",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 6,
+          "effect": "주문력 85",
+          "color": "gold"
+        },
+        {
+          "unit_count": 8,
+          "effect": "**주문력 125. 적중당한 적이 입히는 피해량 18% 감소**",
+          "color": "#E5E4E2"
+        }
+      ]
+    },
+    {
+      "name": "난동꾼",
+      "description": "아군이 최대 체력을 100 얻습니다. 난동꾼은 체력을 더 얻습니다.",
+      "default_image": "/synergy/Bruiser.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "체력 20%",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 4,
+          "effect": "체력 45%",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 6,
+          "effect": "**체력 70%**",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "다이나모",
+      "description": "매 3초마다, 아군이 마나를 얻습니다. 다이나모는 추가 마나를 100% 더 얻습니다.",
+      "default_image": "/synergy/Dynamo.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "마나 5",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 3,
+          "effect": "마나 7",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 4,
+          "effect": "**마나 10**",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "사격수",
+      "description": "사격수가 공격력을 얻습니다. 전투 8초 후 추가 효과가 100% 증가합니다.",
+      "default_image": "/synergy/Marksman.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "공격력 18%",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 4,
+          "effect": "**공격력 35%. 8초 후, 6초마다 공격력 20% 증가**",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "선봉대",
+      "description": "선봉대가 보호막이 씌워졌을 때 내구력을 10% 얻습니다. 전투 시작 시 및 체력 50% 도달 시: 10초 동안 최대 체력의 일부만큼 보호막을 얻습니다.",
+      "default_image": "/synergy/Vanguard.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "최대 체력의 16%",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 4,
+          "effect": "최대 체력의 32%",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 6,
+          "effect": "**최대 체력의 40%, 보호막이 씌워졌을 때 내구력 20%**",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "속사포",
+      "description": "아군이 10%의 공격 속도를 얻습니다. 속사포는 기본 공격시 중첩을 얻으며, 최대 10회 중첩 됩니다.",
+      "default_image": "/synergy/Rapidfire.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "중첩 당 공격 속도 4%",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 4,
+          "effect": "중첩 당 공격 속도 10%",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 6,
+          "effect": "**중첩 당 공격 속도 22%**",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "요새",
+      "description": "아군이 방어력 및 마법 저항력을 10 얻습니다. 요새는 더 많이 얻습니다. 전투 시작 후 첫 10초 동안, 요새가 받는 추가 효과가 100% 증가합니다.",
+      "default_image": "/synergy/Bastion.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "방어력 및 마법 저항력 18",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 4,
+          "effect": "방어력 및 마법 저항력 50",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 6,
+          "effect": "**방어력 및 마법 저항력 90. 요새가 아닌 유닛은 방어력 및 마법 저항력을 40 얻습니다.**",
+          "color": "gold"
+        }
+      ]
+    },
+    {
+      "name": "증.폭.",
+      "description": "증.폭.은 앰프를 통해 스킬을 특별한 방식으로 업그레이드합니다. 또한 체력을 얻습니다.",
+      "default_image": "/synergy/AMP.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "1 앰프, 체력 100",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 3,
+          "effect": "2 앰프, 체력 200",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 4,
+          "effect": "4 앰프, 체력 300",
+          "color": "gold"
+        },
+        {
+          "unit_count": 5,
+          "effect": "**5 앰프, 체력 600**",
+          "color": "#E5E4E2"
+        }
+      ]
+    },
+    {
+      "name": "책략가",
+      "description": "전투 시작: 후방 2열에 있는 아군이 피해 증폭을 얻습니다. 전방 2열에 있는 아군은 내구력을 얻습니다. 책략가는 3배를 얻습니다.",
+      "default_image": "/synergy/Strategist.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "피해 증폭 7%, 내구력 5%",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 3,
+          "effect": "피해 증폭 11%, 내구력 7%",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 4,
+          "effect": "피해 증폭 16%, 내구력 11%",
+          "color": "gold"
+        },
+        {
+          "unit_count": 5,
+          "effect": "**피해 증폭 20%, 내구력 14%**",
+          "color": "#E5E4E2"
+        }
+      ]
+    },
+    {
+      "name": "처형자",
+      "description": "처형자가 스킬 사용 시 치명타가 적용될 수 있습니다. 또한 치명타 확률과 치명타 피해량이 추가로 증가합니다. 대상의 체력이 30% 미만일 경우, 추가 치명타 피해가 두 배로 증가합니다.",
+      "default_image": "/synergy/Executioner.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "치명타 확률 25%, 치명타 피해 8%",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 3,
+          "effect": "치명타 확률 35%, 치명타 피해 15%",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 4,
+          "effect": "치명타 확률 45%, 치명타 피해 20%",
+          "color": "gold"
+        },
+        {
+          "unit_count": 5,
+          "effect": "**치명타 확률 55%, 치명타 피해 25%, 내구력 15% 획득**",
+          "color": "#E5E4E2"
+        }
+      ]
+    },
+    {
+      "name": "학살자",
+      "description": "학살자가 공격력과 모든 피해 흡혈을 얻습니다. 체력을 초과하는 만큼 회복 시 체력이 가장 낮은 학살자가 초과된 회복량의 50%만큼 체력을 회복합니다.",
+      "default_image": "/synergy/Slayer.png",
+      "activation": [
+        {
+          "unit_count": 2,
+          "effect": "공격력 15%, 모든 피해 흡혈 15%",
+          "color": "#A26A49"
+        },
+        {
+          "unit_count": 4,
+          "effect": "공격력 40%, 모든 피해 흡혈 15%",
+          "color": "#8CA1AD"
+        },
+        {
+          "unit_count": 6,
+          "effect": "**공격력 70%, 모든 피해 흡혈 20%**",
+          "color": "gold"
+        }
+      ]
+    }
+  ]
+}

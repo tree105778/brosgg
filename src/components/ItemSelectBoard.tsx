@@ -5,8 +5,15 @@ import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import styles from './SelectionBoard.module.css';
 import Image from 'next/image';
+import DraggableItemImage from '@/components/builder/DraggableItemImage';
 
-export default function ItemSelectBoard({ items }: { items: FetchItems[] }) {
+export default function ItemSelectBoard({
+  items,
+  isDraggable = false,
+}: {
+  items: FetchItems[];
+  isDraggable?: boolean;
+}) {
   const [itemSearchText, setItemSearchText] = useState('');
   const [processedItems, setProcessedItems] = useState(
     [...items].sort((a, b) => a.id - b.id),
@@ -42,15 +49,19 @@ export default function ItemSelectBoard({ items }: { items: FetchItems[] }) {
         />
       </div>
       <div className={styles.itemDisplaySection}>
-        {processedItems.map((item) => (
-          <Image
-            key={item.id}
-            src={item.image}
-            alt={item.name}
-            width={60}
-            height={60}
-          />
-        ))}
+        {processedItems.map((item) => {
+          if (!isDraggable)
+            return (
+              <Image
+                key={item.id}
+                src={item.image}
+                alt={item.name}
+                width={60}
+                height={60}
+              />
+            );
+          return <DraggableItemImage key={item.id} item={item} />;
+        })}
       </div>
     </>
   );
