@@ -52,8 +52,8 @@ export default function DraggableContainerItem({
           className="object-contain"
           alt={name}
           src={image}
-          width={20}
-          height={20}
+          width={30}
+          height={30}
         />
       </div>
     </div>

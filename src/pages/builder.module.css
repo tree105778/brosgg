@@ -1,5 +1,5 @@
 .builderInfoHeaderSection {
-  width: 95%;
+  width: 70%;
   background-color: var(--bg-theme4);
   color: white;
   margin: 0 auto;
@@ -13,7 +13,7 @@
 }
 
 .builderMainSection {
-  width: 70%;
+  width: 60%;
   margin: 4.5rem auto 1rem;
 }
 
@@ -75,26 +75,36 @@
   text-align: center;
 }
 
+.builderCaptureArea {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  /*width: fit-content;*/
+  /*margin: 0 auto;*/
+}
+
 .traitSynergyInfoTab {
   display: flex;
   gap: 0.25rem;
   flex-wrap: nowrap;
   overflow-x: auto;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto -2rem;
   align-items: center;
 }
 
 .argumentInputWrapper {
-  margin: 2rem auto;
+  /*margin: 0 auto;*/
   display: grid;
-  grid-template-columns: repeat(9, 5rem);
+  grid-template-columns: repeat(9, 1fr);
   grid-gap: 10px;
-  grid-auto-rows: 5rem;
-  width: fit-content;
+  /*grid-auto-rows: auto;*/
+  width: 100%;
 }
 
 .argumentInputWrapper > div {
+  aspect-ratio: 1 / 1;
   border: 2px solid #373737;
   border-radius: 0.5rem;
   display: flex;
@@ -103,14 +113,14 @@
 }
 
 .builderBoardContainerWrapper {
-  width: 100%;
-  margin-bottom: 3rem;
+  width: fit-content;
+  margin: 0 auto 3rem;
 }
 
 .builderBoardContainer {
   display: grid;
   grid-template-columns: repeat(7, 100px);
-  grid-template-rows: repeat(4, 100px);
+  grid-template-rows: repeat(4, 116px);
   gap: 0 0.25rem;
   width: fit-content;
   margin: 0 auto;

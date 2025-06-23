@@ -53,8 +53,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Search />
         </div>
         <div className={styles.navBarIconContainer}>
-          <Moon className="text-[#06efd0] size-[2.5rem] m-0" />
-          <Globe className="text-[#06efd0] size-[2.5rem] m-0" />
+          <Moon className="text-[#06efd0] size-[1.5rem] m-0" />
+          <Globe className="text-[#06efd0] size-[1.5rem] m-0" />
         </div>
         <div className={styles.dropdownMenu}>
           <DropdownMenu>

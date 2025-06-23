@@ -127,7 +127,7 @@ export default function DroppableChampionBoard({
               {Array.from({ length: champion.star || 1 }).map((_, idx) => (
                 <div
                   key={idx}
-                  className="size-5 rounded-full border bg-white bg-no-repeat bg-center bg-[length:75%]"
+                  className="size-5 rounded-full border bg-black bg-no-repeat bg-center bg-[length:75%]"
                   style={{ backgroundImage: 'url("/champion-star-1.jpeg")' }}
                 ></div>
               ))}

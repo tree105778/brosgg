@@ -14,7 +14,7 @@ export default function Slider() {
         grabCursor={true}
         slidesPerView={'auto'}
         autoplay={{
-          delay: 1000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         centeredSlides={true}
