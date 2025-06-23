@@ -42,7 +42,7 @@ export default function Builder({
     const captureElement = document.getElementById('capture-area');
     if (!captureElement) return;
 
-    const dataUrl = await htmlToImage.toPng(captureElement, {
+    const dataUrl = await htmlToImage.toSvg(captureElement, {
       cacheBust: false,
       backgroundColor: '#1a1a1a',
       // pixelRatio: 2,
