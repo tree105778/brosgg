@@ -54,6 +54,7 @@ export default function DraggableContainerItem({
           src={image}
           width={30}
           height={30}
+          loading="eager"
         />
       </div>
     </div>

@@ -158,7 +158,12 @@ export default function DroppableChampionBoard({
               }}
             >
               <div className={`${styles.hexagonInner}`}>
-                <Image fill src={champion.image} alt={champion.name} />
+                <Image
+                  fill
+                  src={champion.image}
+                  alt={champion.name}
+                  loading="eager"
+                />
                 <p className={styles.displayChampionName}>{champion.name}</p>
               </div>
             </div>
