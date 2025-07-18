@@ -1,0 +1,26 @@
+[
+  {
+    "name": "일반",
+    "type": "BASE&COMBINED"
+  },
+  {
+    "name": "상징",
+    "type": "EMBLEM"
+  },
+  {
+    "name": "유물",
+    "type": "RELIC"
+  },
+  {
+    "name": "찬란",
+    "type": "BRIGHT"
+  },
+  {
+    "name": "지원",
+    "type": "SUPPORT"
+  },
+  {
+    "name": "엑소테크",
+    "type": "EXOTECH"
+  }
+]
