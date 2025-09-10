@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <nav className={styles.navBar}>
           <Link href={'/'}>HOME</Link>
           <div>메타 추천</div>
-          <div>랭킹</div>
+          <Link href="/rank">랭킹</Link>
           <div>게임가이드</div>
           <div>패치노트</div>
           <Link href={'/builder'}>배치툴</Link>

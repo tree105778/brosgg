@@ -9,6 +9,7 @@
   --bg-theme2: #06F1D2;
   --bg-theme3: #2A2929;
   --bg-theme4: #222222;
+  --bg-theme5: #202020;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -131,7 +132,6 @@ table {
 body {
   background-color: var(--bg-theme1);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
 

@@ -17,6 +17,8 @@ module.exports = {
       new URL(
         'https://gwwwhrtvwejvtwfxyugb.supabase.co/storage/v1/object/public/**',
       ),
+      new URL('https://brosgg.s3.ap-northeast-2.amazonaws.com/**'),
+      new URL('https://ddragon.leagueoflegends.com/cdn/**'),
     ],
   },
 };

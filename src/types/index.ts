@@ -25,6 +25,7 @@ export type SynergyTraits = {
   name: string;
   description: string;
   default_image: string;
+  priority?: number;
   activation: ActivationType[];
 };
 
@@ -51,6 +52,8 @@ export interface ItemData extends Item {
 // }
 
 export type Traits = { trait: string; count: number };
+
+// export type Traits = { trait: SynergyTraits; count: number };
 
 export type TraitsState = {
   droppedItems: string[];

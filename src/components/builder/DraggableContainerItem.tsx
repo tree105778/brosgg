@@ -2,8 +2,9 @@ import { useDrag } from 'react-dnd';
 import { useChampionAndIndexStore } from '@/store';
 import type { Item } from '@/types';
 import Image from 'next/image';
+import { memo } from 'react';
 
-export default function DraggableContainerItem({
+function DraggableContainerItem({
   idx,
   X,
   Y,
@@ -60,3 +61,5 @@ export default function DraggableContainerItem({
     </div>
   );
 }
+
+export default memo(DraggableContainerItem);

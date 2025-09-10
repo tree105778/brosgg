@@ -1,0 +1,76 @@
+.rankInfoHeaderSection {
+  width: 70%;
+  background-color: var(--bg-theme4);
+  color: white;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.rankInfoHeaderSection h1 {
+  color: var(--text-theme2);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.rankMainSection {
+  width: 65%;
+  margin: 4.5rem auto 2rem;
+}
+
+.rankSelectFilterSection {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.top3LeaderBoardSection {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: var(--bg-theme5);
+  color: white;
+  margin: 1rem 0;
+  border-radius: 0.25rem;
+}
+
+.top3UserLeaderBoard {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.top3UserEachContainer {
+  width: 33%;
+  height: 230px;
+  /*border-top-left-radius: 1rem;*/
+  position: relative;
+}
+
+.rankingHeaderSection {
+  display: flex;
+  width: 100%;
+  height: 4rem;
+  margin: 1.5rem 0 0.5rem;
+  background-color: #222222;
+  align-items: center;
+  gap: 2rem;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.rankingListSection {
+  width: 100%;
+  background-color: #222222;
+}
+
+.paginationSection {
+  margin: 1.5rem auto;
+  width: fit-content;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.paginationButton {
+  background-color: #222222;
+  color: #9C9FA1;
+  text-align: center;
+  padding: 0.5rem;
+}

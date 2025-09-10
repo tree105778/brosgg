@@ -2,12 +2,9 @@ import { Champion } from '@/types';
 import { useDrag } from 'react-dnd';
 import Image from 'next/image';
 import styles from './DraggableChampionImage.module.css';
+import { memo } from 'react';
 
-export default function DraggableChampionImage({
-  champion,
-}: {
-  champion: Champion;
-}) {
+function DraggableChampionImage({ champion }: { champion: Champion }) {
   const { id, name, cost, traits, image } = champion;
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'CHAMPION',
@@ -45,3 +42,5 @@ export default function DraggableChampionImage({
     </>
   );
 }
+
+export default memo(DraggableChampionImage);

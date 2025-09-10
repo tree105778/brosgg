@@ -1,8 +1,9 @@
 import { FetchItems } from '@/types';
 import { useDrag } from 'react-dnd';
 import Image from 'next/image';
+import { memo } from 'react';
 
-export default function DraggableItemImage({ item }: { item: FetchItems }) {
+function DraggableItemImage({ item }: { item: FetchItems }) {
   const { id, name, image, type, effects } = item;
 
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -36,3 +37,5 @@ export default function DraggableItemImage({ item }: { item: FetchItems }) {
     </>
   );
 }
+
+export default memo(DraggableItemImage);
