@@ -6,6 +6,11 @@ import localFont from 'next/font/local';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState } from 'react';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { initMSW } from '@/mocks';
+
+if (process.env.NODE_ENV === 'development') {
+  void initMSW();
+}
 
 const pretendard = localFont({
   src: '../fonts/PretendardVariable.woff2',
