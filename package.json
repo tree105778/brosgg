@@ -25,12 +25,13 @@
     "html-to-image": "^1.11.13",
     "immer": "^10.1.1",
     "lucide-react": "^0.501.0",
-    "next": "15.4.2",
+    "next": "15.4.7",
     "rdndmb-html5-to-touch": "^9.0.0",
     "react": "^19",
     "react-dnd": "^16.0.1",
     "react-dnd-multi-backend": "^9.0.0",
     "react-dom": "^19.0.0",
+    "styled-components": "^6.1.19",
     "swiper": "^11.2.6",
     "tailwind-merge": "^3.2.0",
     "zustand": "^5.0.5"
@@ -46,8 +47,14 @@
     "eslint-config-prettier": "^10.1.2",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
+    "msw": "^2.11.6",
     "prettier": "^3.5.3",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
