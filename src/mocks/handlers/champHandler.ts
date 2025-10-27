@@ -97,6 +97,64 @@ export const champHandler = [
           },
         });
       }
+      if (id === '2') {
+        return HttpResponse.json({
+          id: 2,
+          championId: 'ahri',
+          name: '아리',
+          cost: 2,
+          role: 'Mage',
+          season: 15,
+          active: true,
+          ts: 1728036000000,
+          traits: ['Frost', 'Mage'],
+          images: {
+            square: 'https://d18kctlbb86miz.cloudfront.net/champions/ahri.png',
+          },
+          stats: {
+            range: 4.0,
+            attackSpeed: {
+              base: 0.65,
+            },
+            perStar: {
+              '1': {
+                hp: 550,
+                ad: 45,
+                armor: 25,
+                mr: 25,
+              },
+              '2': {
+                hp: 990,
+                ad: 81,
+                armor: 25,
+                mr: 25,
+              },
+              '3': {
+                hp: 1782,
+                ad: 146,
+                armor: 25,
+                mr: 25,
+              },
+            },
+            derived: {
+              dps: {
+                '1': 29,
+                '2': 53,
+                '3': 95,
+              },
+            },
+            mana: {
+              start: 0.0,
+              total: 40.0,
+            },
+          },
+          ability: {
+            name: '구슬 연발',
+            icon: 'https://d18kctlbb86miz.cloudfront.net/abilities/ahri_ability.png',
+            description: '적들에게 마법 피해를 입히고 체력을 회복합니다.',
+          },
+        });
+      }
     },
   ),
 ];

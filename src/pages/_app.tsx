@@ -8,7 +8,10 @@ import { useState } from 'react';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { initMSW } from '@/mocks';
 
-if (process.env.NODE_ENV === 'development') {
+if (
+  process.env.NODE_ENV === 'development' &&
+  process.env.NEXT_PUBLIC_API_MOCKING === 'true'
+) {
   void initMSW();
 }
 
