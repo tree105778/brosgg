@@ -111,3 +111,61 @@ export interface SummonerDetailApiResponse {
     }[];
   };
 }
+
+export interface ChampionListResponse {
+  id: number;
+  championId: string;
+  name: string;
+  cost: number;
+  role: string;
+  season: number;
+  active: boolean;
+  ts: number; // timestamp (ms)
+  traits: string[];
+  images: {
+    square: string;
+  };
+}
+
+export interface ChampionDetailResponse {
+  id: number;
+  championId: string;
+  name: string;
+  cost: number;
+  role: string;
+  season: number;
+  active: boolean;
+  ts: number;
+  traits: string[];
+  images: {
+    square: string;
+  };
+  stats: {
+    range: number;
+    attackSpeed: {
+      base: number;
+    };
+    perStar: {
+      [star: number]: {
+        hp: number;
+        ad: number;
+        armor: number;
+        mr: number;
+      };
+    };
+    derived: {
+      dps: {
+        [star: number]: number;
+      };
+    };
+    mana: {
+      start: number;
+      total: number;
+    };
+  };
+  ability: {
+    name: string;
+    icon: string;
+    description: string;
+  };
+}
