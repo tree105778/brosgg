@@ -1,6 +1,7 @@
 import { champHandler } from '@/mocks/handlers/champHandler';
+import { itemHandler } from '@/mocks/handlers/itemHandler';
 
-export const handlers = [...champHandler];
+export const handlers = [...champHandler, ...itemHandler];
 
 export async function initMSW() {
   if (typeof window === 'undefined') {

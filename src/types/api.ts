@@ -169,3 +169,25 @@ export interface ChampionDetailResponse {
     description: string;
   };
 }
+
+export interface TFTItem {
+  id: number;
+  apiName: string;
+  gameVersion: string;
+  name: string;
+  description: string;
+  icon: string;
+  unique: boolean;
+  associatedTraits: string[];
+  composition: string[];
+  effects: Record<string, number>; // 예: { AD: 10.0 } 또는 { CritDamage: 25.0 }
+  incompatibleTraits: string[];
+  tags: string[];
+  active: boolean;
+}
+
+export interface TFTItemResponse {
+  success: boolean;
+  data: TFTItem[];
+  err: string | null;
+}
