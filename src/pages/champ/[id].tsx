@@ -10,6 +10,7 @@ import { useState } from 'react';
 import RecommendItemContainer from '@/components/common/RecommendItemContainer';
 import { sampleRecommendItemData, sampleTFTMetaData } from '@/data/sampleData';
 import TFTMetaPanel from '@/components/common/TFTMetaPanel';
+import { FirstInfoSection, MainSection } from '@/styles/style.common';
 
 export const getStaticPaths = (async () => {
   initServerMock();
@@ -38,21 +39,6 @@ export const getStaticProps = (async ({ params }) => {
   console.log(detailChampionInfo);
   return { props: { detailChampionInfo } };
 }) satisfies GetStaticProps;
-
-const MainSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 75%;
-  margin: 2rem auto;
-  color: var(--text-theme1);
-`;
-
-const FirstInfoSection = styled.div`
-  display: flex;
-  width: 100%;
-  gap: 0.5rem;
-`;
 
 const ActiveTab = styled.button<{ active?: boolean }>`
   font-weight: bold;
