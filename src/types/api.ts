@@ -186,8 +186,15 @@ export interface TFTItem {
   active: boolean;
 }
 
-export interface TFTItemResponse {
+interface BasicInterface {
   success: boolean;
-  data: TFTItem[];
   err: string | null;
+}
+
+export interface TFTItemResponse extends BasicInterface {
+  data: TFTItem[];
+}
+
+export interface DetailItemResponse extends BasicInterface {
+  data: TFTItem;
 }
