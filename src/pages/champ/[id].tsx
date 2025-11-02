@@ -266,7 +266,7 @@ export default function ChampionDetailPage({
             </div>
           </div>
         </FirstInfoSection>
-        <p className="w-[110%] !text-white font-bold">
+        <p className="w-[110%] !text-white font-bold !mt-16">
           {detailChampionInfo.name} 포함 덱
         </p>
         <hr className="w-[110%] !text-[#333333] mt-4" />
