@@ -5,7 +5,7 @@ export const MainSection = styled.div`
   flex-direction: column;
   align-items: center;
   width: 75%;
-  margin: 2rem auto;
+  margin: 5rem auto;
   color: var(--text-theme1);
 `;
 
