@@ -198,3 +198,175 @@ export interface TFTItemResponse extends BasicInterface {
 export interface DetailItemResponse extends BasicInterface {
   data: TFTItem;
 }
+
+// Summoner Match History Types
+export interface MatchUnit {
+  championId: string;
+  championName: string;
+  tier: number;
+  items: string[];
+}
+
+export interface MatchInfo {
+  matchId: string;
+  queueType: '전체' | '개인 랭크' | '일반' | '더블 업' | '초고속 모드';
+  placement: number;
+  gameLength: number;
+  playedAt: string;
+  units: MatchUnit[];
+  traits: {
+    name: string;
+    tier: number;
+    count: number;
+  }[];
+  lpChange?: number;
+}
+
+export interface SummonerMatchHistoryResponse extends BasicInterface {
+  data: {
+    matches: MatchInfo[];
+    totalCount: number;
+  };
+}
+
+// Summoner Profile Types
+export interface SummonerProfileStats {
+  games: number;
+  avgPlacement: number;
+  top4Rate: number;
+  wins: number;
+}
+
+export interface ChampionStat {
+  championId: string;
+  championName: string;
+  games: number;
+  avgPlacement: number;
+  wins: number;
+  pickRate: number;
+}
+
+export interface SynergyStat {
+  traitName: string;
+  games: number;
+  avgPlacement: number;
+  wins: number;
+  pickRate: number;
+}
+
+export interface TierGraphPoint {
+  tier: string;
+  division: string;
+  lp: number;
+  date: string;
+}
+
+export interface SummonerProfileResponse extends BasicInterface {
+  data: {
+    summoner: {
+      name: string;
+      tag: string;
+      profileIconUrl: string;
+      level: number;
+    };
+    tier: {
+      tier: string;
+      division: string;
+      lp: number;
+    };
+    stats: SummonerProfileStats;
+    championStats: ChampionStat[];
+    synergyStats: SynergyStat[];
+    tierGraph: TierGraphPoint[];
+  };
+}
+
+// Deck/Meta types (based on API documentation)
+export interface ItemDetail {
+  apiName: string;
+  name: string;
+  iconUrl: string;
+  composition: string[];
+  effects: Record<string, number>;
+}
+
+export interface DeckUnit {
+  unitId: number;
+  championId: string;
+  starLevel: number;
+  items: string[];
+  itemDetails: ItemDetail[];
+  imageUrl: string;
+  position: {
+    row: number;
+    col: number;
+  };
+}
+
+export interface DeckBoard {
+  boardId: number | null;
+  level: number;
+  synergies: string | null; // JSON string
+  units: DeckUnit[];
+}
+
+// Deck summary response (list endpoint)
+export interface DeckSummary {
+  deckId: number;
+  title: string;
+  userId: number;
+  setVersion: number;
+  description: string;
+  totalUnits: number;
+  maxLevel: number;
+  tier: 'S' | 'A' | 'B' | 'C' | 'D';
+  createdAt: string;
+  updatedAt: string;
+  activate: boolean;
+  // Extended for meta display (not in original API but needed for UI)
+  avgPlacement?: number;
+  top4Rate?: number;
+  firstRate?: number;
+  pickRate?: number;
+}
+
+// Deck detail response (single deck endpoint)
+export interface DeckDetail {
+  deckId: number;
+  title: string;
+  userId: number;
+  setVersion: number;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+  activate: boolean;
+  tier: 'S' | 'A' | 'B' | 'C' | 'D';
+  boards: DeckBoard[];
+}
+
+export interface DeckListResponse extends BasicInterface {
+  data: DeckSummary[];
+}
+
+export interface DeckDetailResponse extends BasicInterface {
+  data: DeckDetail;
+}
+
+// Extended response for meta page (includes champions from boards)
+export interface MetaDeckSummary extends DeckSummary {
+  champions: {
+    championId: string;
+    name: string;
+    cost: number;
+    imageUrl: string;
+    items: ItemDetail[];
+  }[];
+  synergies: {
+    name: string;
+    count: number;
+  }[];
+}
+
+export interface MetaDeckListResponse extends BasicInterface {
+  data: MetaDeckSummary[];
+}
