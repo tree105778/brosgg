@@ -11,12 +11,42 @@ const costColor: { [key: number]: string } = {
 };
 
 export default function ChampionHexagonContainer({
-  champion: { cost, image, name, items },
+  champion: { cost, image, name, items, tier },
 }: {
   champion: ChampionHexagonContainerProp;
 }) {
   return (
-    <div>
+    <div
+      css={css`
+        position: relative;
+      `}
+    >
+      {/* Tier stars */}
+      {tier && tier > 1 && (
+        <div
+          css={css`
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 2px;
+            z-index: 10;
+          `}
+        >
+          {Array.from({ length: tier }).map((_, idx) => (
+            <span
+              key={idx}
+              css={css`
+                color: #ffd700;
+                font-size: 12px;
+              `}
+            >
+              ★
+            </span>
+          ))}
+        </div>
+      )}
       <div
         css={css`
           clip-path: polygon(
