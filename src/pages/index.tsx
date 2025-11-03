@@ -14,6 +14,8 @@ import Slider from '@/components/Slider';
 import { fetchChampionsS14Data, fetchItemS14Data } from '@/lib/supabase';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import SelectionBoard from '@/components/SelectionBoard';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export const getStaticProps = (async () => {
   const champions = await fetchChampionsS14Data();
@@ -26,6 +28,23 @@ export default function Home({
   champions,
   items,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = () => {
+    if (!searchQuery.trim()) return;
+
+    // gameName#tagLine 형식을 gameName-tagLine으로 변환
+    const formattedQuery = searchQuery.trim().replace('#', '-');
+    router.push(`/profile/${formattedQuery}`);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <div className={styles.mainSection}>
       <Image width={100} height={100} src={subLogo} alt="GG" />
@@ -48,8 +67,11 @@ export default function Home({
           type="text"
           placeholder="플레이어 명으로 검색"
           className="border-none w-[250px] h-12 focus-visible:ring-transparent flex-[1] !text-2xl"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyPress={handleKeyPress}
         />
-        <Search className="size-10" />
+        <Search className="size-10 cursor-pointer" onClick={handleSearch} />
       </div>
       <div className="w-full flex items-end gap-6">
         <p className="!text-3xl font-bold">TODAY PICK</p>

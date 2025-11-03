@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import styles from './RootLayout.module.css';
 import { Input } from '@/components/ui/input';
 import {
@@ -16,15 +16,33 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useRouter } from 'next/router';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = () => {
+    if (!searchQuery.trim()) return;
+
+    // gameName#tagLine 형식을 gameName-tagLine으로 변환
+    const formattedQuery = searchQuery.trim().replace('#', '-');
+    router.push(`/profile/${formattedQuery}`);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <>
       <div className={styles.headerSection}>
         <Link href={'/'} className={styles.navBarIcon} />
         <nav className={styles.navBar}>
           <Link href={'/'}>HOME</Link>
-          <div>메타 추천</div>
+          <Link href="/meta">메타 추천</Link>
           <Link href="/rank">랭킹</Link>
           <div>게임가이드</div>
           <div>패치노트</div>
@@ -49,8 +67,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             type="text"
             placeholder="플레이어 명으로 검색"
             className="border-none w-[250px] focus-visible:ring-transparent translate-x-[-6px]"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyPress={handleKeyPress}
           />
-          <Search />
+          <Search onClick={handleSearch} className="cursor-pointer" />
         </div>
         <div className={styles.navBarIconContainer}>
           <Moon className="text-[#06efd0] size-[1.5rem] m-0" />
@@ -66,10 +87,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <Link href={'/'}>HOME</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <div>메타 추천</div>
+                <Link href="/meta">메타 추천</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <div>랭킹</div>
+                <Link href="/rank">랭킹</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <div>게임가이드</div>
