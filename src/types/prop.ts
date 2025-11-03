@@ -22,6 +22,7 @@ export interface ChampionHexagonContainerProp {
     itemName: string;
     itemImgSrc: string;
   }[];
+  tier?: number; // Star level (1-3)
 }
 
 export interface TFTMetaPanelProp extends DefaultNumberStat {

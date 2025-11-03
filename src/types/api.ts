@@ -199,90 +199,152 @@ export interface DetailItemResponse extends BasicInterface {
   data: TFTItem;
 }
 
-// Summoner Match History Types
-export interface MatchUnit {
-  championId: string;
-  championName: string;
+// Summoner API Types (based on API documentation)
+
+// Common types
+export interface EntityUsage {
+  apiName: string;
+  displayName: string;
+  count: number;
+}
+
+// Client-side extended type for champion stats with calculated average placement
+export interface EntityUsageWithPlacement extends EntityUsage {
+  averagePlacement: number;
+}
+
+export interface TraitReference {
+  apiName: string;
+  displayName: string;
+}
+
+export interface TraitDetail {
+  apiName: string;
+  displayName: string;
+  tierCurrent: number;
+  tierTotal: number;
+  numUnits: number;
+  style: number;
+}
+
+export interface SummonerItemDetail {
+  apiName: string;
+  displayName: string;
+  iconUrl: string;
+}
+
+export interface UnitDetail {
+  apiName: string;
+  displayName: string;
   tier: number;
-  items: string[];
+  characterId: string;
+  cost: number;
+  traits: TraitReference[];
+  iconUrl: string;
+  items: SummonerItemDetail[];
 }
 
-export interface MatchInfo {
-  matchId: string;
-  queueType: '전체' | '개인 랭크' | '일반' | '더블 업' | '초고속 모드';
-  placement: number;
-  gameLength: number;
-  playedAt: string;
-  units: MatchUnit[];
-  traits: {
-    name: string;
-    tier: number;
-    count: number;
-  }[];
-  lpChange?: number;
-}
-
-export interface SummonerMatchHistoryResponse extends BasicInterface {
-  data: {
-    matches: MatchInfo[];
-    totalCount: number;
-  };
-}
-
-// Summoner Profile Types
-export interface SummonerProfileStats {
-  games: number;
-  avgPlacement: number;
-  top4Rate: number;
-  wins: number;
-}
-
-export interface ChampionStat {
-  championId: string;
-  championName: string;
-  games: number;
-  avgPlacement: number;
-  wins: number;
-  pickRate: number;
-}
-
-export interface SynergyStat {
-  traitName: string;
-  games: number;
-  avgPlacement: number;
-  wins: number;
-  pickRate: number;
-}
-
+// Tier graph point
 export interface TierGraphPoint {
+  matchId: string;
+  gameDatetime: number;
+  placement: number;
+}
+
+// Rank information
+export interface Rank {
+  queue: string;
   tier: string;
   division: string;
   lp: number;
-  date: string;
+  wins: number;
+  losses: number;
+  tierGraph: TierGraphPoint[];
 }
 
-export interface SummonerProfileResponse extends BasicInterface {
+// Summoner basic info
+export interface SummonerInfo {
+  puuid: string;
+  gameName: string;
+  tagLine: string;
+  summonerLevel: number | null;
+  profileIconId: number | null;
+  rank: Rank | null;
+  rankDoubleUp?: Rank | null;
+  rankTurbo?: Rank | null;
+}
+
+// Summary statistics
+export interface SummaryStats {
+  matchCount: number;
+  averagePlacement: number;
+  top4Rate: number;
+  winRate: number;
+  placementDistribution: number[];
+  mostPlayedTraits: EntityUsage[];
+  mostPlayedUnits: EntityUsage[];
+}
+
+// Match summary
+export interface MatchSummary {
+  matchId: string;
+  gameDatetime: number;
+  placement: number;
+  queueType: string;
+  augments: string[];
+  traits: TraitDetail[];
+  units: UnitDetail[];
+}
+
+// Match player detail
+export interface MatchPlayer {
+  placement: number;
+  puuid: string | null;
+  gameName: string;
+  tagLine: string;
+  level: number;
+  lastRound: string;
+  augments: string[];
+  traits: TraitDetail[];
+  units: UnitDetail[];
+  goldLeft: number;
+  damageDealt: number;
+}
+
+// Match detail (8 players)
+export interface MatchDetail {
+  matchId: string;
+  gameDatetime: number;
+  gameDurationSeconds: number;
+  queueType: string;
+  players: MatchPlayer[];
+}
+
+// Main response
+export interface SummonerDetailResponse extends BasicInterface {
   data: {
-    summoner: {
-      name: string;
-      tag: string;
-      profileIconUrl: string;
-      level: number;
-    };
-    tier: {
-      tier: string;
-      division: string;
-      lp: number;
-    };
-    stats: SummonerProfileStats;
-    championStats: ChampionStat[];
-    synergyStats: SynergyStat[];
-    tierGraph: TierGraphPoint[];
+    summoner: SummonerInfo;
+    summaryStats: SummaryStats;
+    matches: MatchSummary[];
+    matchDetails: MatchDetail[];
+    fetchedAt: number;
+  };
+}
+
+// Updating status response
+export interface SummonerUpdatingResponse extends BasicInterface {
+  data: {
+    puuid: string;
+    updating: boolean;
+    lastUpdatedAt: number | null;
+    lastRequestedAt: number;
+    message: string | null;
+    lastError: string | null;
   };
 }
 
 // Deck/Meta types (based on API documentation)
-export interface ItemDetail {
+export interface DeckItemDetail {
   apiName: string;
   name: string;
   iconUrl: string;
@@ -295,7 +357,7 @@ export interface DeckUnit {
   championId: string;
   starLevel: number;
   items: string[];
-  itemDetails: ItemDetail[];
+  itemDetails: DeckItemDetail[];
   imageUrl: string;
   position: {
     row: number;
@@ -359,7 +421,7 @@ export interface MetaDeckSummary extends DeckSummary {
     name: string;
     cost: number;
     imageUrl: string;
-    items: ItemDetail[];
+    items: DeckItemDetail[];
   }[];
   synergies: {
     name: string;
