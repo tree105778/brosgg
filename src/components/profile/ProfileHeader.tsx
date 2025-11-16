@@ -27,6 +27,13 @@ export default function ProfileHeader({
         padding: 1.5rem 2rem;
         border-radius: 8px;
         width: 100%;
+
+        @media (max-width: 640px) {
+          gap: 1rem;
+          padding: 1rem;
+          flex-direction: column;
+          align-items: flex-start;
+        }
       `}
     >
       <Image
@@ -36,6 +43,11 @@ export default function ProfileHeader({
         height={80}
         css={css`
           border-radius: 50%;
+
+          @media (max-width: 640px) {
+            width: 60px;
+            height: 60px;
+          }
         `}
       />
       <div
@@ -51,6 +63,7 @@ export default function ProfileHeader({
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            flex-wrap: wrap;
           `}
         >
           <h1
@@ -59,6 +72,10 @@ export default function ProfileHeader({
               font-weight: bold;
               color: var(--text-theme2);
               margin: 0;
+
+              @media (max-width: 640px) {
+                font-size: 1.25rem;
+              }
             `}
           >
             {name}
@@ -67,6 +84,10 @@ export default function ProfileHeader({
             css={css`
               font-size: 1.5rem;
               color: var(--text-theme1);
+
+              @media (max-width: 640px) {
+                font-size: 1.25rem;
+              }
             `}
           >
             #{tag}

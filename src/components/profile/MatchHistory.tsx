@@ -161,6 +161,7 @@ export default function MatchHistory({ matches }: MatchHistoryProps) {
                       items: unit.items.slice(0, 3).map((item) => ({
                         itemName: item.displayName,
                         itemImgSrc: item.iconUrl,
+                        itemApiName: item.apiName,
                       })),
                       tier: unit.tier,
                     }}
