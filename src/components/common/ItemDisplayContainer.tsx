@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useRouter } from 'next/router';
 import { TFTItemResponse } from '@/types/api';
 import { ChangeEvent, useState } from 'react';
 import styled from '@emotion/styled';
@@ -46,9 +47,11 @@ const ItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 `;
 
 export default function ItemDisplayContainer() {
+  const router = useRouter();
   const { data: items } = useQuery<TFTItemResponse>({
     queryKey: ['item', 'list'],
     queryFn: async () => {
@@ -58,6 +61,11 @@ export default function ItemDisplayContainer() {
   });
   const [itemText, setItemText] = useState('');
   const [activateItemFilter, setActivateItemFilter] = useState('일반');
+
+  const handleItemClick = (itemId: number) => {
+    router.push(`/item/${itemId}`);
+  };
+
   const handleOnChangeItemText = (e: ChangeEvent<HTMLInputElement>) => {
     setItemText(e.target.value);
   };
@@ -96,7 +104,7 @@ export default function ItemDisplayContainer() {
       </div>
       <ItemWrapperContainer>
         {items?.data?.map((item) => (
-          <ItemWrapper key={item.id}>
+          <ItemWrapper key={item.id} onClick={() => handleItemClick(item.id)}>
             <Image src={item.icon} alt={item.name} width={60} height={60} />
           </ItemWrapper>
         ))}

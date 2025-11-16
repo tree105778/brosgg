@@ -1,5 +1,6 @@
 import { Search } from 'lucide-react';
 import { ChangeEvent, useState } from 'react';
+import { useRouter } from 'next/router';
 import { useQuery } from '@tanstack/react-query';
 import { ChampionListResponse } from '@/types/api';
 import Image from 'next/image';
@@ -45,9 +46,11 @@ const ChampionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 `;
 
 export default function ChampionDisplayContainer() {
+  const router = useRouter();
   const { data: champs } = useQuery<ChampionListResponse[]>({
     queryKey: ['champion', 'list'],
     queryFn: async () => {
@@ -58,6 +61,11 @@ export default function ChampionDisplayContainer() {
     },
   });
   const [championText, setChampionText] = useState('');
+
+  const handleChampionClick = (championId: number) => {
+    router.push(`/champ/${championId}`);
+  };
+
   const handleOnChangeChampionText = (e: ChangeEvent<HTMLInputElement>) => {
     setChampionText(e.target.value);
   };
@@ -74,7 +82,10 @@ export default function ChampionDisplayContainer() {
       </SearchInputContainer>
       <ChampionWrapperContainer>
         {champs?.map((champ) => (
-          <ChampionWrapper key={champ.id}>
+          <ChampionWrapper
+            key={champ.id}
+            onClick={() => handleChampionClick(champ.id)}
+          >
             <Image
               src={champ.images.square}
               alt={champ.name}

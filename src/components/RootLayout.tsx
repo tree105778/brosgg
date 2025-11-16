@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Link href="/meta">메타 추천</Link>
           <Link href="/rank">랭킹</Link>
           <div>게임가이드</div>
-          <div>패치노트</div>
+          <Link href="/patchnote">패치노트</Link>
           <Link href={'/builder'}>배치툴</Link>
           <div>커뮤니티</div>
         </nav>

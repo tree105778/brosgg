@@ -12,6 +12,29 @@ const HeaderInfoSectionStyle = styled.div`
     font-size: 2rem;
     margin-bottom: 1rem;
   }
+
+  @media (max-width: 1024px) {
+    width: 90%;
+    padding: 1.5rem;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    width: 95%;
+    padding: 1rem;
+
+    h1 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+    }
+  }
 `;
 
 export default function HeaderInfoSection({
