@@ -30,12 +30,21 @@ export const getStaticPaths = (async () => {
 export const getStaticProps = (async ({ params }) => {
   initServerMock();
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER}/api/v1/champions/${params?.id}`,
-  );
-  if (!res.ok) throw new Error('Not Existed Id');
-  const detailChampionInfo: ChampionDetailResponse = await res.json();
-  return { props: { detailChampionInfo } };
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/v1/champions/${params?.id}`,
+    );
+
+    if (!res.ok) {
+      return { notFound: true };
+    }
+
+    const detailChampionInfo: ChampionDetailResponse = await res.json();
+    return { props: { detailChampionInfo } };
+  } catch (error) {
+    console.error('Error fetching champion detail:', error);
+    return { notFound: true };
+  }
 }) satisfies GetStaticProps;
 
 const ActiveTab = styled.button<{ active?: boolean }>`

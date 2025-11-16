@@ -29,13 +29,21 @@ export const getStaticPaths = (async () => {
 export const getStaticProps = (async ({ params }) => {
   initServerMock();
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER}/api/v1/items/${params?.id}`,
-  );
-  if (!res.ok) throw new Error('Not Existed Id');
-  const detailItemInfo: DetailItemResponse = await res.json();
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/v1/items/${params?.id}`,
+    );
 
-  return { props: { detailItemInfo } };
+    if (!res.ok) {
+      return { notFound: true };
+    }
+
+    const detailItemInfo: DetailItemResponse = await res.json();
+    return { props: { detailItemInfo } };
+  } catch (error) {
+    console.error('Error fetching item detail:', error);
+    return { notFound: true };
+  }
 }) satisfies GetStaticProps;
 export default function ItemDetailPage({
   detailItemInfo: { data: detailItem },
