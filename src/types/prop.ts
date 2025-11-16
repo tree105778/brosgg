@@ -1,6 +1,7 @@
 type BasicItem = {
   itemName: string;
   itemImgSrc: string;
+  itemApiName?: string; // Optional API name for navigation
 };
 
 export interface DefaultNumberStat {
@@ -21,8 +22,11 @@ export interface ChampionHexagonContainerProp {
   items: {
     itemName: string;
     itemImgSrc: string;
+    itemApiName?: string; // Optional API name for navigation
   }[];
   tier?: number; // Star level (1-3)
+  championId?: string; // Optional champion ID for navigation
+  onClick?: () => void; // Optional click handler for navigation
 }
 
 export interface TFTMetaPanelProp extends DefaultNumberStat {
@@ -30,4 +34,5 @@ export interface TFTMetaPanelProp extends DefaultNumberStat {
   metaName: string;
   champs: ChampionHexagonContainerProp[];
   pickRate: number;
+  deckId?: number; // Optional deck ID for navigation
 }

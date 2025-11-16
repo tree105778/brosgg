@@ -359,6 +359,10 @@ export interface DeckUnit {
   items: string[];
   itemDetails: DeckItemDetail[];
   imageUrl: string;
+  name?: string;
+  championName?: string;
+  cost?: number;
+  championCost?: number;
   position: {
     row: number;
     col: number;
@@ -385,6 +389,7 @@ export interface DeckSummary {
   createdAt: string;
   updatedAt: string;
   activate: boolean;
+  todayPick?: boolean;
   // Extended for meta display (not in original API but needed for UI)
   avgPlacement?: number;
   top4Rate?: number;
@@ -402,6 +407,7 @@ export interface DeckDetail {
   createdAt: string;
   updatedAt: string;
   activate: boolean;
+  todayPick?: boolean;
   tier: 'S' | 'A' | 'B' | 'C' | 'D';
   boards: DeckBoard[];
 }
@@ -431,4 +437,55 @@ export interface MetaDeckSummary extends DeckSummary {
 
 export interface MetaDeckListResponse extends BasicInterface {
   data: MetaDeckSummary[];
+}
+
+// PatchNote types (based on patchnote-api-docs.md)
+export interface PatchNoteSummary {
+  id: string;
+  season: number;
+  version: string;
+  title: string;
+  active: boolean;
+  releaseTs: string; // ISO-8601 timestamp
+}
+
+export interface PatchNoteDetail {
+  id: string;
+  season: number;
+  version: string;
+  title: string;
+  content: string; // Will be parsed as JSON for tabs
+  active: boolean;
+  releaseTs: string; // ISO-8601 timestamp
+}
+
+export interface PatchNoteListResponse extends BasicInterface {
+  data: PatchNoteSummary[];
+}
+
+export interface PatchNoteDetailResponse extends BasicInterface {
+  data: PatchNoteDetail;
+}
+
+// UI-specific types for parsed patch note content
+export type ChangeType = 'nerf' | 'buff' | 'neutral';
+
+export interface PatchNoteChange {
+  label: string; // e.g., "체력: 200 ⇒ 150"
+  type: ChangeType;
+}
+
+export interface PatchNoteItem {
+  name: string; // e.g., "니달리", "무한의 대검"
+  imageUrl?: string;
+  traits?: string[]; // For champions: ["니토로", "흉폭한"]
+  changes: PatchNoteChange[];
+}
+
+export interface PatchNoteTabContent {
+  시스템: PatchNoteItem[];
+  챔피언: PatchNoteItem[];
+  시너지: PatchNoteItem[];
+  아이템: PatchNoteItem[];
+  증강제: PatchNoteItem[];
 }
