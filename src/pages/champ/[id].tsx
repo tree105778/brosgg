@@ -15,16 +15,27 @@ import { FirstInfoSection, MainSection } from '@/styles/style.common';
 export const getStaticPaths = (async () => {
   initServerMock();
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER}/api/v1/champions`,
-  );
-  if (!res.ok) throw new Error('Server Error during get champions data');
-  const champs: ChampionListResponse[] = await res.json();
-  const paths = champs.map((champ) => ({
-    params: { id: champ.id.toString() },
-  }));
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/v1/champions`,
+    );
 
-  return { paths, fallback: false };
+    if (!res.ok) {
+      console.error('Server Error during get champions data');
+      return { paths: [], fallback: 'blocking' };
+    }
+
+    const champs: ChampionListResponse[] = await res.json();
+    const paths =
+      champs?.map((champ) => ({
+        params: { id: champ.id.toString() },
+      })) || [];
+
+    return { paths, fallback: 'blocking' };
+  } catch (error) {
+    console.error('Error fetching champions for static paths:', error);
+    return { paths: [], fallback: 'blocking' };
+  }
 }) satisfies GetStaticPaths;
 
 export const getStaticProps = (async ({ params }) => {
@@ -93,7 +104,7 @@ export default function ChampionDetailPage({
                   {detailChampionInfo.name}
                 </p>
                 <div className="flex gap-2 items-center">
-                  {detailChampionInfo.traits.map((trait, idx) => (
+                  {detailChampionInfo.traits?.map((trait, idx) => (
                     <div
                       key={idx}
                       css={css`

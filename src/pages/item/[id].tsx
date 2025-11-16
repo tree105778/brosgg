@@ -15,15 +15,18 @@ import { fetchItemsFromBackend } from '@/lib/api';
 export const getStaticPaths = (async () => {
   initServerMock();
 
-  // const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/item`);
-  // if (!res.ok) throw new Error('Server Error during get items data');
-  // const items: TFTItemResponse = await res.json();
-  const items = await fetchItemsFromBackend();
-  const paths = items.map((item) => ({
-    params: { id: item.id.toString() },
-  }));
+  try {
+    const items = await fetchItemsFromBackend();
+    const paths =
+      items?.map((item) => ({
+        params: { id: item.id.toString() },
+      })) || [];
 
-  return { paths, fallback: false };
+    return { paths, fallback: 'blocking' };
+  } catch (error) {
+    console.error('Error fetching items for static paths:', error);
+    return { paths: [], fallback: 'blocking' };
+  }
 }) satisfies GetStaticPaths;
 
 export const getStaticProps = (async ({ params }) => {
@@ -52,6 +55,10 @@ export default function ItemDetailPage({
     queryKey: [detailItem.id, 'item', 'composition'],
     queryFn: async () => {
       const compositionImgSrc: string[] = [];
+      if (!detailItem.composition || detailItem.composition.length === 0) {
+        return compositionImgSrc;
+      }
+
       for (const composition of detailItem.composition) {
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_API_SERVER}/item/api/${composition}`,
@@ -63,6 +70,7 @@ export default function ItemDetailPage({
 
       return compositionImgSrc;
     },
+    enabled: !!detailItem.composition && detailItem.composition.length > 0,
   });
 
   return (

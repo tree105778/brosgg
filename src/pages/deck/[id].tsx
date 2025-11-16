@@ -15,16 +15,25 @@ interface DeckDetailPageProps {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const decks = await fetchMetaDecks({ activate: true });
+  try {
+    const decks = await fetchMetaDecks({ activate: true });
 
-  const paths = decks.data.map((deck) => ({
-    params: { id: deck.deckId.toString() },
-  }));
+    const paths =
+      decks.data?.map((deck) => ({
+        params: { id: deck.deckId.toString() },
+      })) || [];
 
-  return {
-    paths,
-    fallback: 'blocking',
-  };
+    return {
+      paths,
+      fallback: 'blocking',
+    };
+  } catch (error) {
+    console.error('Failed to fetch meta decks for static paths:', error);
+    return {
+      paths: [],
+      fallback: 'blocking',
+    };
+  }
 };
 
 export const getStaticProps: GetStaticProps<DeckDetailPageProps> = async ({
@@ -55,7 +64,7 @@ export const getStaticProps: GetStaticProps<DeckDetailPageProps> = async ({
 export default function DeckDetailPage({ deckDetail }: DeckDetailPageProps) {
   const [selectedLevel, setSelectedLevel] = useState(8); // 기본 레벨 8
 
-  const currentBoard = deckDetail.boards.find(
+  const currentBoard = deckDetail.boards?.find(
     (board) => board.level === selectedLevel,
   );
 
@@ -143,16 +152,18 @@ export default function DeckDetailPage({ deckDetail }: DeckDetailPageProps) {
         <LevelSelector
           selectedLevel={selectedLevel}
           onLevelChange={setSelectedLevel}
-          availableLevels={deckDetail.boards.map((b) => b.level)}
+          availableLevels={deckDetail.boards?.map((b) => b.level) || []}
         />
 
         {/* 보드 섹션 */}
         <DeckBoardSection board={currentBoard} />
 
         {/* 아이템 추천 섹션 */}
-        {currentBoard && currentBoard.units.length > 0 && (
-          <DeckItemRecommendations units={currentBoard.units} />
-        )}
+        {currentBoard &&
+          currentBoard.units &&
+          currentBoard.units.length > 0 && (
+            <DeckItemRecommendations units={currentBoard.units} />
+          )}
       </section>
     </>
   );

@@ -68,11 +68,12 @@ export default function MetaPage() {
           name: champ.name,
           image: champ.imageUrl,
           championId: champ.championId,
-          items: champ.items.map((item) => ({
-            itemName: item.name,
-            itemImgSrc: item.iconUrl,
-            itemApiName: item.apiName,
-          })),
+          items:
+            champ.items?.map((item) => ({
+              itemName: item.name,
+              itemImgSrc: item.iconUrl,
+              itemApiName: item.apiName,
+            })) || [],
         })) || [],
     })) || [];
 
