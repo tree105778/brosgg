@@ -34,28 +34,40 @@ export const PAGE_PER_CONTENT = 25;
 
 export const getServerSideProps = (async () => {
   const queryClient = new QueryClient();
-  const { data } = await queryClient.fetchQuery<RankingApiResponse>({
-    queryKey: ['ranking', TFTRankTier.CHALLENGER.toString(), 1],
-    queryFn: () =>
-      fetchRankedTftRankingInfo(
-        0,
-        PAGE_PER_CONTENT,
-        true,
-        TFTRankTier.CHALLENGER.toString().toUpperCase(),
-      ),
-  });
 
-  await queryClient.prefetchQuery({
-    queryKey: ['ranking', TFTRankTier.CHALLENGER, 'top3user'],
-    queryFn: fetchRankedTftTop3User,
-  });
+  try {
+    const { data } = await queryClient.fetchQuery<RankingApiResponse>({
+      queryKey: ['ranking', TFTRankTier.CHALLENGER.toString(), 1],
+      queryFn: () =>
+        fetchRankedTftRankingInfo(
+          0,
+          PAGE_PER_CONTENT,
+          true,
+          TFTRankTier.CHALLENGER.toString().toUpperCase(),
+        ),
+    });
 
-  return {
-    props: {
-      totalCount: data.totalCount || 500,
-      dehydrateState: dehydrate(queryClient),
-    },
-  };
+    await queryClient.prefetchQuery({
+      queryKey: ['ranking', TFTRankTier.CHALLENGER, 'top3user'],
+      queryFn: fetchRankedTftTop3User,
+    });
+
+    return {
+      props: {
+        totalCount: data.totalCount || 500,
+        dehydrateState: dehydrate(queryClient),
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching ranking data:', error);
+    // Return default values on error to prevent server error
+    return {
+      props: {
+        totalCount: 0,
+        dehydrateState: dehydrate(queryClient),
+      },
+    };
+  }
 }) satisfies GetServerSideProps;
 
 export default function Rank({

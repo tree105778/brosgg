@@ -131,7 +131,7 @@ export default function DeckDetailPage({ deckDetail }: DeckDetailPageProps) {
             align-items: center;
           `}
         >
-          {parsedSynergies.map((synergy) => (
+          {parsedSynergies?.map((synergy) => (
             <SynergyInfo key={synergy.trait} trait={synergy} />
           ))}
         </div>

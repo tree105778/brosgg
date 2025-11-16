@@ -21,10 +21,16 @@ import { useRouter } from 'next/router';
 export const getStaticProps = (async () => {
   initServerMock();
 
-  const champions = await fetchChampionsFromBackend();
-  const items = await fetchItemsFromBackend();
+  try {
+    const champions = await fetchChampionsFromBackend();
+    const items = await fetchItemsFromBackend();
 
-  return { props: { champions, items } };
+    return { props: { champions, items } };
+  } catch (error) {
+    console.error('Error fetching champions and items:', error);
+    // Return empty arrays as fallback to prevent build failure
+    return { props: { champions: [], items: [] } };
+  }
 }) satisfies GetStaticProps;
 
 export default function Home({
