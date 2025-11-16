@@ -2,6 +2,14 @@ import {
   RankingApiResponse,
   SummonerDetailApiResponse,
   TFTRankTier,
+  DeckListResponse,
+  MetaDeckListResponse,
+  PatchNoteListResponse,
+  PatchNoteDetailResponse,
+  DeckDetailResponse,
+  ChampionListResponse,
+  TFTItemResponse,
+  TFTItem,
 } from '@/types/api';
 
 type Top3User = {
@@ -27,13 +35,11 @@ async function fetchTop3DetailUserInfo(
   top3UserList: { name: string; tag: string }[],
 ) {
   const top3User: Top3User[] = [];
-  console.log(top3UserList);
   for (const user of top3UserList) {
     const { name, tag } = user;
     const userDetail: SummonerDetailApiResponse = await fetch(
       `${process.env.NEXT_PUBLIC_API_SERVER}/summoner/detail/${name}/${tag}`,
     ).then((res) => res.json());
-    console.log(userDetail);
     top3User.push({
       rank: top3User.length + 1,
       name,
@@ -76,4 +82,107 @@ export async function fetchRankedTftTop3UserForTier(
   }));
 
   return await fetchTop3DetailUserInfo(top3UserList);
+}
+
+export async function fetchTodayPickDecks(): Promise<DeckListResponse> {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER}/api/decks/today-picks`,
+  );
+  return res.json();
+}
+
+export async function fetchMetaDecks(params?: {
+  tier?: string;
+  setVersion?: number;
+  activate?: boolean;
+}): Promise<MetaDeckListResponse> {
+  const queryParams = new URLSearchParams();
+  if (params?.tier) queryParams.append('tier', params.tier);
+  if (params?.setVersion)
+    queryParams.append('setVersion', params.setVersion.toString());
+  if (params?.activate !== undefined)
+    queryParams.append('activate', params.activate.toString());
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER}/api/decks?${queryParams.toString()}`,
+  );
+  return res.json();
+}
+
+export async function fetchPatchNotes(params?: {
+  active?: boolean;
+}): Promise<PatchNoteListResponse> {
+  const queryParams = new URLSearchParams();
+  if (params?.active !== undefined) {
+    queryParams.append('active', params.active ? 'y' : 'n');
+  }
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER}/patchnote?${queryParams.toString()}`,
+  );
+  return res.json();
+}
+
+export async function fetchPatchNoteDetail(
+  id: string,
+): Promise<PatchNoteDetailResponse> {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER}/patchnote/${id}`,
+  );
+  return res.json();
+}
+
+export async function fetchDeckDetail(
+  deckId: string,
+): Promise<DeckDetailResponse> {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER}/api/decks/${deckId}`,
+  );
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch deck detail: ${res.status}`);
+  }
+
+  return res.json();
+}
+
+export async function fetchChampionsFromBackend() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER}/api/v1/champions`,
+  );
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch champions: ${res.status}`);
+  }
+
+  const champions: ChampionListResponse[] = await res.json();
+
+  // Transform to match Supabase champion structure
+  return champions.map((champion) => ({
+    id: champion.id,
+    name: champion.name,
+    cost: champion.cost,
+    image: champion.images.square,
+    traits: champion.traits,
+  }));
+}
+
+export async function fetchItemsFromBackend() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/v1/items`);
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch items: ${res.status}`);
+  }
+
+  const response: TFTItemResponse = await res.json();
+  const items = response.data;
+
+  // Transform to match Supabase item structure
+  return items.map((item) => ({
+    id: item.id,
+    name: item.name,
+    image: item.icon,
+    effects: JSON.stringify(item.effects),
+    type: item.tags[0] || '',
+  }));
 }

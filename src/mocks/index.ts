@@ -2,12 +2,14 @@ import { champHandler } from '@/mocks/handlers/champHandler';
 import { itemHandler } from '@/mocks/handlers/itemHandler';
 import { summonerHandler } from '@/mocks/handlers/summonerHandler';
 import { deckHandler } from '@/mocks/handlers/deckHandler';
+import { patchnoteHandler } from '@/mocks/handlers/patchnoteHandler';
 
 export const handlers = [
   ...champHandler,
   ...itemHandler,
   ...summonerHandler,
   ...deckHandler,
+  ...patchnoteHandler,
 ];
 
 export async function initMSW() {

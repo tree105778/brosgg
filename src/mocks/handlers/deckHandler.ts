@@ -24,6 +24,7 @@ export const deckHandler = [
         createdAt: '2025-01-02T10:00:00',
         updatedAt: '2025-01-02T10:05:00',
         activate: true,
+        todayPick: true,
         avgPlacement: 3.5,
         top4Rate: 48.7,
         firstRate: 21.3,
@@ -98,6 +99,7 @@ export const deckHandler = [
         createdAt: '2025-01-02T11:00:00',
         updatedAt: '2025-01-02T11:05:00',
         activate: true,
+        todayPick: true,
         avgPlacement: 3.4,
         top4Rate: 52.3,
         firstRate: 19.8,
@@ -156,6 +158,7 @@ export const deckHandler = [
         createdAt: '2025-01-02T12:00:00',
         updatedAt: '2025-01-02T12:05:00',
         activate: true,
+        todayPick: true,
         avgPlacement: 3.8,
         top4Rate: 46.2,
         firstRate: 16.5,
@@ -214,6 +217,7 @@ export const deckHandler = [
         createdAt: '2025-01-02T13:00:00',
         updatedAt: '2025-01-02T13:05:00',
         activate: true,
+        todayPick: false,
         avgPlacement: 4.0,
         top4Rate: 44.8,
         firstRate: 15.2,
@@ -263,6 +267,7 @@ export const deckHandler = [
         createdAt: '2025-01-02T14:00:00',
         updatedAt: '2025-01-02T14:05:00',
         activate: true,
+        todayPick: false,
         avgPlacement: 4.2,
         top4Rate: 42.5,
         firstRate: 13.8,
@@ -329,6 +334,79 @@ export const deckHandler = [
     });
   }),
 
+  // GET /api/decks/today-picks - 오늘의 추천 덱 조회
+  http.get(
+    `${process.env.NEXT_PUBLIC_API_SERVER}/api/decks/today-picks`,
+    () => {
+      // todayPick: true인 덱만 필터링
+      const todayPickDecks = [
+        {
+          deckId: 1,
+          title: '미포 테크 덱',
+          userId: 1,
+          setVersion: 14,
+          description:
+            'FAST 8 전략으로 레벨 8까지 빠르게 올라가 미포와 테크 시너지를 완성하는 덱입니다.',
+          totalUnits: 8,
+          maxLevel: 8,
+          tier: 'S',
+          createdAt: '2025-01-02T10:00:00',
+          updatedAt: '2025-01-02T10:05:00',
+          activate: true,
+          todayPick: true,
+          avgPlacement: 3.5,
+          top4Rate: 48.7,
+          firstRate: 21.3,
+          pickRate: 8.2,
+        },
+        {
+          deckId: 2,
+          title: '흑마법사 덱',
+          userId: 1,
+          setVersion: 14,
+          description:
+            '흑마법사 시너지를 중심으로 강력한 마법 딜을 넣는 덱입니다.',
+          totalUnits: 7,
+          maxLevel: 8,
+          tier: 'S',
+          createdAt: '2025-01-02T11:00:00',
+          updatedAt: '2025-01-02T11:05:00',
+          activate: true,
+          todayPick: true,
+          avgPlacement: 3.4,
+          top4Rate: 52.3,
+          firstRate: 19.8,
+          pickRate: 9.5,
+        },
+        {
+          deckId: 3,
+          title: '감시자 브루저 덱',
+          userId: 1,
+          setVersion: 14,
+          description:
+            '감시자와 브루저 시너지로 안정적인 탱킹과 딜을 제공합니다.',
+          totalUnits: 8,
+          maxLevel: 8,
+          tier: 'A',
+          createdAt: '2025-01-02T12:00:00',
+          updatedAt: '2025-01-02T12:05:00',
+          activate: true,
+          todayPick: true,
+          avgPlacement: 3.8,
+          top4Rate: 46.2,
+          firstRate: 16.5,
+          pickRate: 7.3,
+        },
+      ];
+
+      return HttpResponse.json({
+        success: true,
+        data: todayPickDecks,
+        err: null,
+      });
+    },
+  ),
+
   // GET /api/decks/:id - 덱 상세 조회
   http.get(
     `${process.env.NEXT_PUBLIC_API_SERVER}/api/decks/:id`,
@@ -354,20 +432,221 @@ export const deckHandler = [
               {
                 boardId: null,
                 level: 5,
-                synergies: null,
-                units: [],
+                synergies: '{"미포":2,"테크":2}',
+                units: [
+                  {
+                    unitId: 2001,
+                    championId: 'Powder',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Powder_1752221994-Powder.jpg',
+                    position: { row: 1, col: 2 },
+                  },
+                  {
+                    unitId: 2002,
+                    championId: 'Ziggs',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Ziggs_1752221994-Ziggs.jpg',
+                    position: { row: 1, col: 4 },
+                  },
+                  {
+                    unitId: 2003,
+                    championId: 'Ekko',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Ekko_1752221994-Ekko.jpg',
+                    position: { row: 2, col: 1 },
+                  },
+                  {
+                    unitId: 2004,
+                    championId: 'Jinx',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Jinx_1752221994-Jinx.jpg',
+                    position: { row: 2, col: 3 },
+                  },
+                  {
+                    unitId: 2005,
+                    championId: 'Vi',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Vi_1752221994-Vi.jpg',
+                    position: { row: 2, col: 5 },
+                  },
+                ],
               },
               {
                 boardId: null,
                 level: 6,
-                synergies: null,
-                units: [],
+                synergies: '{"미포":3,"테크":2,"브루저":2}',
+                units: [
+                  {
+                    unitId: 3001,
+                    championId: 'Powder',
+                    starLevel: 2,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Powder_1752221994-Powder.jpg',
+                    position: { row: 1, col: 2 },
+                  },
+                  {
+                    unitId: 3002,
+                    championId: 'Ziggs',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Ziggs_1752221994-Ziggs.jpg',
+                    position: { row: 1, col: 4 },
+                  },
+                  {
+                    unitId: 3003,
+                    championId: 'Ekko',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Ekko_1752221994-Ekko.jpg',
+                    position: { row: 2, col: 1 },
+                  },
+                  {
+                    unitId: 3004,
+                    championId: 'Jinx',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Jinx_1752221994-Jinx.jpg',
+                    position: { row: 2, col: 3 },
+                  },
+                  {
+                    unitId: 3005,
+                    championId: 'Vi',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Vi_1752221994-Vi.jpg',
+                    position: { row: 2, col: 5 },
+                  },
+                  {
+                    unitId: 3006,
+                    championId: 'Darius',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Darius_1752221994-Darius.jpg',
+                    position: { row: 3, col: 2 },
+                  },
+                ],
               },
               {
                 boardId: null,
                 level: 7,
-                synergies: null,
-                units: [],
+                synergies: '{"미포":3,"테크":3,"브루저":2}',
+                units: [
+                  {
+                    unitId: 4001,
+                    championId: 'Powder',
+                    starLevel: 2,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Powder_1752221994-Powder.jpg',
+                    position: { row: 1, col: 2 },
+                  },
+                  {
+                    unitId: 4002,
+                    championId: 'Ziggs',
+                    starLevel: 2,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Ziggs_1752221994-Ziggs.jpg',
+                    position: { row: 1, col: 4 },
+                  },
+                  {
+                    unitId: 4003,
+                    championId: 'Ekko',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Ekko_1752221994-Ekko.jpg',
+                    position: { row: 2, col: 1 },
+                  },
+                  {
+                    unitId: 4004,
+                    championId: 'Jinx',
+                    starLevel: 1,
+                    items: [
+                      {
+                        apiName: 'InfinityEdge',
+                        name: '무한의 대검',
+                        iconUrl:
+                          'https://cdn.lolchess.gg/upload/images/items/InfinityEdge_1710231772-infinityedge.png',
+                        composition: ['B.F. Sword', 'B.F. Sword'],
+                        effects: { CritDamage: 25.0 },
+                      },
+                    ],
+                    itemDetails: [
+                      {
+                        apiName: 'InfinityEdge',
+                        name: '무한의 대검',
+                        iconUrl:
+                          'https://cdn.lolchess.gg/upload/images/items/InfinityEdge_1710231772-infinityedge.png',
+                        composition: ['B.F. Sword', 'B.F. Sword'],
+                        effects: { CritDamage: 25.0 },
+                      },
+                    ],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Jinx_1752221994-Jinx.jpg',
+                    position: { row: 2, col: 3 },
+                  },
+                  {
+                    unitId: 4005,
+                    championId: 'Vi',
+                    starLevel: 2,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Vi_1752221994-Vi.jpg',
+                    position: { row: 2, col: 5 },
+                  },
+                  {
+                    unitId: 4006,
+                    championId: 'Darius',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Darius_1752221994-Darius.jpg',
+                    position: { row: 3, col: 2 },
+                  },
+                  {
+                    unitId: 4007,
+                    championId: 'Jayce',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Jayce_1752221994-Jayce.jpg',
+                    position: { row: 3, col: 4 },
+                  },
+                ],
               },
               {
                 boardId: 777,
@@ -416,14 +695,248 @@ export const deckHandler = [
               {
                 boardId: null,
                 level: 9,
-                synergies: null,
-                units: [],
+                synergies: '{"미포":5,"테크":4,"브루저":2}',
+                units: [
+                  {
+                    unitId: 5001,
+                    championId: 'Powder',
+                    starLevel: 3,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Powder_1752221994-Powder.jpg',
+                    position: { row: 1, col: 2 },
+                  },
+                  {
+                    unitId: 5002,
+                    championId: 'Ziggs',
+                    starLevel: 2,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Ziggs_1752221994-Ziggs.jpg',
+                    position: { row: 1, col: 4 },
+                  },
+                  {
+                    unitId: 5003,
+                    championId: 'Ekko',
+                    starLevel: 2,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Ekko_1752221994-Ekko.jpg',
+                    position: { row: 2, col: 1 },
+                  },
+                  {
+                    unitId: 5004,
+                    championId: 'Jinx',
+                    starLevel: 2,
+                    items: ['InfinityEdge', 'GiantSlayer'],
+                    itemDetails: [
+                      {
+                        apiName: 'InfinityEdge',
+                        name: '무한의 대검',
+                        iconUrl:
+                          'https://cdn.lolchess.gg/upload/images/items/InfinityEdge_1710231772-infinityedge.png',
+                        composition: ['B.F. Sword', 'B.F. Sword'],
+                        effects: { CritDamage: 25.0 },
+                      },
+                      {
+                        apiName: 'GiantSlayer',
+                        name: '거인 학살자',
+                        iconUrl:
+                          'https://cdn.lolchess.gg/upload/images/items/GiantSlayer_1710231772-giantslayer.png',
+                        composition: ['Recurve Bow', 'B.F. Sword'],
+                        effects: { AttackDamage: 10.0, BonusDamage: 25.0 },
+                      },
+                    ],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Jinx_1752221994-Jinx.jpg',
+                    position: { row: 2, col: 3 },
+                  },
+                  {
+                    unitId: 5005,
+                    championId: 'Vi',
+                    starLevel: 2,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Vi_1752221994-Vi.jpg',
+                    position: { row: 2, col: 5 },
+                  },
+                  {
+                    unitId: 5006,
+                    championId: 'Darius',
+                    starLevel: 2,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Darius_1752221994-Darius.jpg',
+                    position: { row: 3, col: 2 },
+                  },
+                  {
+                    unitId: 5007,
+                    championId: 'Jayce',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Jayce_1752221994-Jayce.jpg',
+                    position: { row: 3, col: 4 },
+                  },
+                  {
+                    unitId: 5008,
+                    championId: 'LeBlanc',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/LeBlanc_1752221994-LeBlanc.jpg',
+                    position: { row: 0, col: 3 },
+                  },
+                  {
+                    unitId: 5009,
+                    championId: 'Warwick',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Warwick_1752221994-Warwick.jpg',
+                    position: { row: 3, col: 0 },
+                  },
+                ],
               },
               {
                 boardId: null,
                 level: 10,
-                synergies: null,
-                units: [],
+                synergies: '{"미포":6,"테크":4,"브루저":3}',
+                units: [
+                  {
+                    unitId: 6001,
+                    championId: 'Powder',
+                    starLevel: 3,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Powder_1752221994-Powder.jpg',
+                    position: { row: 1, col: 2 },
+                  },
+                  {
+                    unitId: 6002,
+                    championId: 'Ziggs',
+                    starLevel: 3,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Ziggs_1752221994-Ziggs.jpg',
+                    position: { row: 1, col: 4 },
+                  },
+                  {
+                    unitId: 6003,
+                    championId: 'Ekko',
+                    starLevel: 2,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Ekko_1752221994-Ekko.jpg',
+                    position: { row: 2, col: 1 },
+                  },
+                  {
+                    unitId: 6004,
+                    championId: 'Jinx',
+                    starLevel: 2,
+                    items: ['InfinityEdge', 'GiantSlayer', 'Bloodthirster'],
+                    itemDetails: [
+                      {
+                        apiName: 'InfinityEdge',
+                        name: '무한의 대검',
+                        iconUrl:
+                          'https://cdn.lolchess.gg/upload/images/items/InfinityEdge_1710231772-infinityedge.png',
+                        composition: ['B.F. Sword', 'B.F. Sword'],
+                        effects: { CritDamage: 25.0 },
+                      },
+                      {
+                        apiName: 'GiantSlayer',
+                        name: '거인 학살자',
+                        iconUrl:
+                          'https://cdn.lolchess.gg/upload/images/items/GiantSlayer_1710231772-giantslayer.png',
+                        composition: ['Recurve Bow', 'B.F. Sword'],
+                        effects: { AttackDamage: 10.0, BonusDamage: 25.0 },
+                      },
+                      {
+                        apiName: 'Bloodthirster',
+                        name: '피바라기',
+                        iconUrl:
+                          'https://cdn.lolchess.gg/upload/images/items/Bloodthirster_1710231772-bloodthirster.png',
+                        composition: ['B.F. Sword', 'Negatron Cloak'],
+                        effects: { AttackDamage: 15.0, Omnivamp: 25.0 },
+                      },
+                    ],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Jinx_1752221994-Jinx.jpg',
+                    position: { row: 2, col: 3 },
+                  },
+                  {
+                    unitId: 6005,
+                    championId: 'Vi',
+                    starLevel: 2,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Vi_1752221994-Vi.jpg',
+                    position: { row: 2, col: 5 },
+                  },
+                  {
+                    unitId: 6006,
+                    championId: 'Darius',
+                    starLevel: 2,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Darius_1752221994-Darius.jpg',
+                    position: { row: 3, col: 2 },
+                  },
+                  {
+                    unitId: 6007,
+                    championId: 'Jayce',
+                    starLevel: 2,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Jayce_1752221994-Jayce.jpg',
+                    position: { row: 3, col: 4 },
+                  },
+                  {
+                    unitId: 6008,
+                    championId: 'LeBlanc',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/LeBlanc_1752221994-LeBlanc.jpg',
+                    position: { row: 0, col: 3 },
+                  },
+                  {
+                    unitId: 6009,
+                    championId: 'Warwick',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Warwick_1752221994-Warwick.jpg',
+                    position: { row: 3, col: 0 },
+                  },
+                  {
+                    unitId: 6010,
+                    championId: 'Swain',
+                    starLevel: 1,
+                    items: [],
+                    itemDetails: [],
+                    imageUrl:
+                      'https://cdn.lolchess.gg/upload/images/champions/Swain_1752221994-Swain.jpg',
+                    position: { row: 3, col: 6 },
+                  },
+                ],
               },
             ],
           },
