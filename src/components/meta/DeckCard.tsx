@@ -1,5 +1,6 @@
 import { MetaDeckSummary } from '@/types/api';
 import { css } from '@emotion/react';
+import { useRouter } from 'next/router';
 import ChampionHexagonContainer from '@/components/common/ChampionHexagonContainer';
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
@@ -9,7 +10,14 @@ interface DeckCardProps {
 }
 
 export default function DeckCard({ deck }: DeckCardProps) {
+  const router = useRouter();
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleCardClick = () => {
+    if (deck.deckId) {
+      router.push(`/deck/${deck.deckId}`);
+    }
+  };
 
   const getTierColor = (tier: string) => {
     switch (tier) {
@@ -30,12 +38,14 @@ export default function DeckCard({ deck }: DeckCardProps) {
 
   return (
     <div
+      onClick={handleCardClick}
       css={css`
         background-color: #111111;
         border-radius: 0.5rem;
         padding: 1.5rem;
         margin-bottom: 1rem;
         transition: all 0.3s ease;
+        cursor: ${deck.deckId ? 'pointer' : 'default'};
 
         &:hover {
           background-color: #1a1a1a;
@@ -160,7 +170,10 @@ export default function DeckCard({ deck }: DeckCardProps) {
 
         {/* Expand Button */}
         <button
-          onClick={() => setIsExpanded(!isExpanded)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsExpanded(!isExpanded);
+          }}
           css={css`
             background-color: #2a2a2a;
             border: 1px solid #444;

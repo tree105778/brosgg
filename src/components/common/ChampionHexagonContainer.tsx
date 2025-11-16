@@ -11,14 +11,23 @@ const costColor: { [key: number]: string } = {
 };
 
 export default function ChampionHexagonContainer({
-  champion: { cost, image, name, items, tier },
+  champion: { cost, image, name, items, tier, onClick },
 }: {
   champion: ChampionHexagonContainerProp;
 }) {
+  const handleClick = (e: React.MouseEvent) => {
+    if (onClick) {
+      e.stopPropagation();
+      onClick();
+    }
+  };
+
   return (
     <div
+      onClick={handleClick}
       css={css`
         position: relative;
+        cursor: ${onClick ? 'pointer' : 'default'};
       `}
     >
       {/* Tier stars */}
