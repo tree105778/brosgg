@@ -1,14 +1,16 @@
 import styles from './builder.module.css';
 import { CirclePlus, RefreshCw, X } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { fetchChampionsS14Data, fetchItemS14Data } from '@/lib/supabase';
+import { fetchChampionsFromBackend, fetchItemsFromBackend } from '@/lib/api';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { initServerMock } from '@/mocks/server';
 import ChampionSelectBoard from '@/components/ChampionSelectBoard';
 import ItemSelectBoard from '@/components/ItemSelectBoard';
 import { DndProvider } from 'react-dnd-multi-backend';
 import { HTML5toTouch } from 'rdndmb-html5-to-touch';
 import { useChampionAndIndexStore, useTraitsStateStore } from '@/store';
 import SynergyInfo from '@/components/builder/SynergyInfo';
+import ChampionBoardGrid from '@/components/builder/ChampionBoardGrid';
 import DroppableChampionBoard from '@/components/builder/DroppableChampionBoard';
 import * as htmlToImage from 'html-to-image';
 import {
@@ -23,8 +25,10 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 export const getStaticProps = (async () => {
-  const champions = await fetchChampionsS14Data();
-  const items = await fetchItemS14Data();
+  initServerMock();
+
+  const champions = await fetchChampionsFromBackend();
+  const items = await fetchItemsFromBackend();
   return { props: { champions, items } };
 }) satisfies GetStaticProps;
 
@@ -37,13 +41,20 @@ export default function Builder({
     (state) => state.resetAllChampionIndex,
   );
   const [screenshotUrl, setScreenshotUrl] = useState('');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const onClickCaptureButton = async () => {
     const captureElement = document.getElementById('capture-area');
     if (!captureElement) return;
 
+    // 이전 스크린샷 초기화
+    setScreenshotUrl('');
+
+    // 약간의 딜레이 후 새로운 스크린샷 캡처 (DOM 업데이트 대기)
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
     const dataUrl = await htmlToImage.toSvg(captureElement, {
-      cacheBust: false,
+      cacheBust: true, // 캐시 방지를 위해 true로 변경
       backgroundColor: '#1a1a1a',
       // pixelRatio: 2,
     });
@@ -51,9 +62,17 @@ export default function Builder({
     setScreenshotUrl(dataUrl);
   };
 
+  const handleDialogOpenChange = (open: boolean) => {
+    setIsDialogOpen(open);
+    // Dialog가 닫힐 때 스크린샷 초기화
+    if (!open) {
+      setScreenshotUrl('');
+    }
+  };
+
   return (
     <DndProvider options={HTML5toTouch}>
-      <Dialog>
+      <Dialog open={isDialogOpen} onOpenChange={handleDialogOpenChange}>
         <div className={styles.builderInfoHeaderSection}>
           <h1>배치툴</h1>
           <p>나만의 덱을 구성해 커뮤니티에 공유해보세요!</p>
@@ -65,7 +84,10 @@ export default function Builder({
               <DialogTrigger asChild>
                 <button
                   className={styles.headerCommonBtn}
-                  onClick={onClickCaptureButton}
+                  onClick={async () => {
+                    setIsDialogOpen(true);
+                    await onClickCaptureButton();
+                  }}
                 >
                   공유
                 </button>
@@ -104,23 +126,9 @@ export default function Builder({
                 </div>
               ))}
             </div>
-            <div className={styles.builderBoardContainerWrapper}>
-              <div className={styles.builderBoardContainer}>
-                {Array.from({ length: 28 }).map((_, idx) => (
-                  <div
-                    key={idx}
-                    className={`${styles.hexagonWrapper}${
-                      Math.floor(idx / 7) % 2 === 1 ? ' ' + styles.offset : ''
-                    }`}
-                  >
-                    <DroppableChampionBoard
-                      X={Math.floor(idx / 7)}
-                      Y={idx % 7}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+            <ChampionBoardGrid>
+              {(X, Y) => <DroppableChampionBoard X={X} Y={Y} />}
+            </ChampionBoardGrid>
           </div>
           <Tabs defaultValue="champion" className="w-full">
             <TabsList className="flex text-white mt-8">
@@ -150,12 +158,12 @@ export default function Builder({
           </Tabs>
         </div>
         <DialogContent
-          className="bg-[#2a2929] !max-w-[800px]"
+          className="bg-[#2a2929] md:!max-w-[800px] sm:!max-w-[95vw]"
           showCloseButton={false}
         >
-          <div className="flex justify-between items-center !p-4 w-full !mb-[-18px]">
+          <div className="flex justify-between items-center md:!p-4 sm:!p-2 w-full !mb-[-18px]">
             <DialogHeader>
-              <DialogTitle className="text-white !text-[2rem]">
+              <DialogTitle className="text-white md:!text-[2rem] sm:!text-[1.5rem]">
                 미리보기
               </DialogTitle>
             </DialogHeader>
@@ -169,6 +177,7 @@ export default function Builder({
               alt="스크린샷"
               width={1200}
               height={1000}
+              className="w-full h-auto"
             />
           )}
         </DialogContent>
