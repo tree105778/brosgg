@@ -11,15 +11,18 @@ import {
 import { Input } from '@/components/ui/input';
 import { ChevronDown, Search } from 'lucide-react';
 import Slider from '@/components/Slider';
-import { fetchChampionsS14Data, fetchItemS14Data } from '@/lib/supabase';
+import { fetchChampionsFromBackend, fetchItemsFromBackend } from '@/lib/api';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { initServerMock } from '@/mocks/server';
 import SelectionBoard from '@/components/SelectionBoard';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 export const getStaticProps = (async () => {
-  const champions = await fetchChampionsS14Data();
-  const items = await fetchItemS14Data();
+  initServerMock();
+
+  const champions = await fetchChampionsFromBackend();
+  const items = await fetchItemsFromBackend();
 
   return { props: { champions, items } };
 }) satisfies GetStaticProps;
@@ -47,12 +50,18 @@ export default function Home({
 
   return (
     <div className={styles.mainSection}>
-      <Image width={100} height={100} src={subLogo} alt="GG" />
+      <Image
+        width={100}
+        height={100}
+        src={subLogo}
+        alt="GG"
+        className="md:w-[100px] md:h-[100px] sm:w-[80px] sm:h-[80px]"
+      />
       <div className={styles.searchBarContainer}>
         <Select>
-          <SelectTrigger className="border-none focus-visible:ring-transparent !text-2xl [&_svg:not(.my-icon)]:hidden">
+          <SelectTrigger className="border-none focus-visible:ring-transparent md:!text-2xl sm:!text-lg [&_svg:not(.my-icon)]:hidden">
             <SelectValue placeholder="KR" />
-            <ChevronDown className="size-8 my-icon" />
+            <ChevronDown className="md:size-8 sm:size-6 my-icon" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem defaultChecked={true} value="KR">
@@ -62,20 +71,25 @@ export default function Home({
             <SelectItem value="EU">EU</SelectItem>
           </SelectContent>
         </Select>
-        <div className="w-[2px] h-[2.75rem] translate-x-[-6px] bg-[#595959]"></div>
+        <div className="w-[2px] md:h-[2.75rem] sm:h-[2rem] translate-x-[-6px] bg-[#595959]"></div>
         <Input
           type="text"
           placeholder="플레이어 명으로 검색"
-          className="border-none w-[250px] h-12 focus-visible:ring-transparent flex-[1] !text-2xl"
+          className="border-none w-[250px] md:h-12 sm:h-10 focus-visible:ring-transparent flex-[1] md:!text-2xl sm:!text-base"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onKeyPress={handleKeyPress}
         />
-        <Search className="size-10 cursor-pointer" onClick={handleSearch} />
+        <Search
+          className="md:size-10 sm:size-8 cursor-pointer"
+          onClick={handleSearch}
+        />
       </div>
-      <div className="w-full flex items-end gap-6">
-        <p className="!text-3xl font-bold">TODAY PICK</p>
-        <p className="leading-8">오늘은 이 덱 어때요?</p>
+      <div className="w-full flex items-end md:gap-6 sm:gap-3">
+        <p className="md:!text-3xl sm:!text-xl font-bold">TODAY PICK</p>
+        <p className="md:leading-8 sm:leading-6 md:text-base sm:text-sm">
+          오늘은 이 덱 어때요?
+        </p>
       </div>
       <Slider />
       <div className={styles.advSection}>

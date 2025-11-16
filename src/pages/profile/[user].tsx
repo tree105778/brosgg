@@ -2,10 +2,10 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 import { css } from '@emotion/react';
 import { useMemo, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { SummonerDetailResponse, EntityUsageWithPlacement } from '@/types/api';
 import ProfileHeader from '@/components/profile/ProfileHeader';
 import MatchHistory from '@/components/profile/MatchHistory';
-import TierGraph from '@/components/profile/TierGraph';
 import ChampionStats from '@/components/profile/ChampionStats';
 import SynergyStats from '@/components/profile/SynergyStats';
 import { initServerMock } from '@/mocks/server';
@@ -13,6 +13,11 @@ import RecentStats from '@/components/profile/RecentStats';
 import RankedCard from '@/components/profile/RankedCard';
 import DoubleUpCard from '@/components/profile/DoubleUpCard';
 import TurboCard from '@/components/profile/TurboCard';
+
+// TierGraph를 동적 import로 변경 (SSR 비활성화 - recharts 이슈 해결)
+const TierGraph = dynamic(() => import('@/components/profile/TierGraph'), {
+  ssr: false,
+});
 
 export const getServerSideProps = (async (context) => {
   const { user } = context.params as { user: string };
@@ -281,6 +286,20 @@ export default function ProfilePage({
         width: 80%;
         margin: 2rem auto;
         color: var(--text-theme1);
+
+        @media (max-width: 1440px) {
+          width: 90%;
+        }
+
+        @media (max-width: 1024px) {
+          width: 95%;
+          margin: 1.5rem auto;
+        }
+
+        @media (max-width: 640px) {
+          width: 98%;
+          margin: 1rem auto;
+        }
       `}
     >
       <ProfileHeader
@@ -300,6 +319,31 @@ export default function ProfilePage({
           grid-template-rows: 2fr 1fr 1fr;
           gap: 1rem;
           margin-top: 2rem;
+
+          @media (max-width: 1024px) {
+            grid-template-areas:
+              'ranked recent'
+              'champion synergy'
+              'tier tier'
+              'doubleup turbo';
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            gap: 0.75rem;
+          }
+
+          @media (max-width: 640px) {
+            grid-template-areas:
+              'ranked'
+              'recent'
+              'champion'
+              'synergy'
+              'tier'
+              'doubleup'
+              'turbo';
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+            margin-top: 1rem;
+          }
         `}
       >
         <div
@@ -440,6 +484,12 @@ export default function ProfilePage({
               display: flex;
               gap: 2rem;
               margin-bottom: 1.5rem;
+              flex-wrap: wrap;
+
+              @media (max-width: 640px) {
+                gap: 1rem;
+                margin-bottom: 1rem;
+              }
             `}
           >
             {[

@@ -10,14 +10,16 @@ import { useQuery } from '@tanstack/react-query';
 import { Plus } from 'lucide-react';
 import TFTMetaPanel from '@/components/common/TFTMetaPanel';
 import { sampleTFTMetaData } from '@/data/sampleData';
+import { fetchItemsFromBackend } from '@/lib/api';
 
 export const getStaticPaths = (async () => {
   initServerMock();
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/item`);
-  if (!res.ok) throw new Error('Server Error during get items data');
-  const items: TFTItemResponse = await res.json();
-  const paths = items.data.map((item) => ({
+  // const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/item`);
+  // if (!res.ok) throw new Error('Server Error during get items data');
+  // const items: TFTItemResponse = await res.json();
+  const items = await fetchItemsFromBackend();
+  const paths = items.map((item) => ({
     params: { id: item.id.toString() },
   }));
 
@@ -28,7 +30,7 @@ export const getStaticProps = (async ({ params }) => {
   initServerMock();
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER}/item/${params?.id}`,
+    `${process.env.NEXT_PUBLIC_API_SERVER}/api/v1/items/${params?.id}`,
   );
   if (!res.ok) throw new Error('Not Existed Id');
   const detailItemInfo: DetailItemResponse = await res.json();
@@ -50,7 +52,6 @@ export default function ItemDetailPage({
         const { data }: DetailItemResponse = await res.json();
         compositionImgSrc.push(data.icon);
       }
-      console.log(compositionImgSrc);
 
       return compositionImgSrc;
     },

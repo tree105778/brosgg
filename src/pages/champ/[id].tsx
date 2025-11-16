@@ -20,7 +20,6 @@ export const getStaticPaths = (async () => {
   );
   if (!res.ok) throw new Error('Server Error during get champions data');
   const champs: ChampionListResponse[] = await res.json();
-  console.log(champs);
   const paths = champs.map((champ) => ({
     params: { id: champ.id.toString() },
   }));
@@ -36,7 +35,6 @@ export const getStaticProps = (async ({ params }) => {
   );
   if (!res.ok) throw new Error('Not Existed Id');
   const detailChampionInfo: ChampionDetailResponse = await res.json();
-  console.log(detailChampionInfo);
   return { props: { detailChampionInfo } };
 }) satisfies GetStaticProps;
 
@@ -147,7 +145,7 @@ export default function ChampionDetailPage({
                       ★★★
                     </ChampionStarTab>
                   </div>
-                  <div className="flex gap-x-[100px] gap-y-[1rem] flex-wrap !mt-4">
+                  <div className="flex gap-x-[100px] gap-y-[1rem] lg:gap-x-[100px] md:gap-x-[50px] sm:gap-x-[30px] flex-wrap !mt-4">
                     <div className="min-w-[70px]">
                       <p className="text-[#999999]">체력</p>
                       <p className="!text-2xl text-white">

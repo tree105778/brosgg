@@ -61,14 +61,17 @@ export default function MetaPage() {
       firstRate: deck.firstRate || 0,
       pickRate: deck.pickRate || 0,
       top4Rate: deck.top4Rate || 0,
+      deckId: deck.deckId,
       champs:
         deck.champions?.map((champ) => ({
           cost: champ.cost,
           name: champ.name,
           image: champ.imageUrl,
+          championId: champ.championId,
           items: champ.items.map((item) => ({
             itemName: item.name,
             itemImgSrc: item.iconUrl,
+            itemApiName: item.apiName,
           })),
         })) || [],
     })) || [];
@@ -80,7 +83,7 @@ export default function MetaPage() {
         description="현재 시즌의 강력한 덱 조합을 확인하고 나에게 맞는 전략을 찾아보세요!"
       />
       <MainSection>
-        <div className="w-[110%]">
+        <div className="lg:w-[110%] md:w-full sm:w-full">
           <MetaFilters
             selectedTier={selectedTier}
             onTierChange={setSelectedTier}
@@ -108,7 +111,7 @@ export default function MetaPage() {
 
         {!isLoading && !error && metaPanels && (
           <>
-            <p className="w-[110%] text-white font-semibold !mb-2">
+            <p className="lg:w-[110%] md:w-full sm:w-full text-white font-semibold !mb-2">
               총 {metaPanels.length}개의 덱
             </p>
 
