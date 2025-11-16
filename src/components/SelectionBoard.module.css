@@ -62,7 +62,7 @@
   justify-content: space-around;
 }
 
-.boardCostSelect input[type="radio"] {
+.boardCostSelect input[type='radio'] {
   appearance: none;
 }
 
@@ -132,4 +132,13 @@
 
 .itemDisplaySection::-webkit-scrollbar {
   display: none;
+}
+
+@media (max-width: 900px) {
+  .boardHeaderSection {
+    flex-wrap: wrap;
+    display: flex;
+    /* flex-direction: column; */
+    width: 100%;
+  }
 }

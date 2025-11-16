@@ -2,6 +2,7 @@ import { FetchChampions, FetchItems } from '@/types';
 import styles from './SelectionBoard.module.css';
 import ChampionSelectBoard from '@/components/ChampionSelectBoard';
 import ItemSelectBoard from '@/components/ItemSelectBoard';
+import MetaSelectBoard from '@/components/meta/MetaSelectBoard';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function SelectionBoard({
@@ -48,6 +49,9 @@ export default function SelectionBoard({
             <ItemSelectBoard items={items} />
           </TabsContent>
         )}
+        <TabsContent value="meta">
+          <MetaSelectBoard />
+        </TabsContent>
       </Tabs>
     </div>
   );

@@ -6,15 +6,16 @@ import styles from './SynergyInfo.module.css';
 export default function SynergyInfo({ trait }: { trait: Traits }) {
   const { traits } = synergyData as SynergyData;
   const traitInfo = traits.find((t) => t.name === trait.trait);
-  if (!traitInfo) return null;
-  const activate_level = traitInfo.activation.map((t) => t.unit_count);
-  const levelIndex = activate_level.findIndex((level, idx) =>
-    idx === activate_level.length - 1
-      ? trait.count >= level
-      : trait.count >= level && trait.count < activate_level[idx + 1],
-  );
+  // if (!traitInfo) return null;
+  const activate_level = traitInfo?.activation.map((t) => t.unit_count);
+  const levelIndex =
+    activate_level?.findIndex((level, idx) =>
+      idx === activate_level.length - 1
+        ? trait.count >= level
+        : trait.count >= level && trait.count < activate_level[idx + 1],
+    ) || 0;
 
-  const synergyColor = traitInfo.activation[levelIndex]?.color || '#A26A49';
+  const synergyColor = traitInfo?.activation[levelIndex]?.color || '#A26A49';
 
   return (
     <div className={styles.synergyInfoWrapper}>
@@ -27,7 +28,7 @@ export default function SynergyInfo({ trait }: { trait: Traits }) {
         <Image
           width={24}
           height={24}
-          src={traitInfo.default_image}
+          src={traitInfo?.default_image || ''}
           alt={trait.trait}
         />
       </div>

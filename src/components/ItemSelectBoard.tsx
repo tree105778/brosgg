@@ -84,7 +84,6 @@ export default function ItemSelectBoard({
           <button
             key={idx}
             onClick={() => {
-              console.log(filter.type);
               dispatch({ type: 'filterValue', payload: filter.type });
             }}
             className={`${styles.boardItemFilterButton} ${filterValue === filter.type ? 'bg-[#06F1D2] text-[#2A2A2A]' : 'bg-[#2A2929] text-[#C0C4C6]'}`}

@@ -42,7 +42,6 @@ function reducer(state: FilterState, action: FilterAction) {
     case 'championSearchText':
     case 'traitValue':
     case 'classValue':
-      console.log(`${action.type}: ${action.payload}`);
       return { ...state, [action.type]: action.payload };
     case 'costValue':
       return { ...state, costValue: action.payload };
