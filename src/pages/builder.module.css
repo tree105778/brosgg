@@ -17,10 +17,55 @@
   margin: 4.5rem auto 2rem;
 }
 
+@media (max-width: 1440px) {
+  .builderInfoHeaderSection {
+    width: 80%;
+  }
+
+  .builderMainSection {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .builderInfoHeaderSection {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .builderInfoHeaderSection h1 {
+    font-size: 1.5rem;
+  }
+
+  .builderMainSection {
+    width: 85%;
+    margin: 3rem auto 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .builderInfoHeaderSection {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .builderInfoHeaderSection h1 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .builderMainSection {
+    width: 95%;
+    margin: 2rem auto 1rem;
+  }
+}
+
 .builderFirstHeaderSection {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .headerCommonBtn {
@@ -51,6 +96,7 @@
   margin: 2rem 0 0;
   display: flex;
   gap: 6px;
+  flex-wrap: wrap;
 }
 
 .secondHeaderInitialBtn {
@@ -73,6 +119,27 @@
   border-radius: 0.25rem;
   box-sizing: content-box;
   text-align: center;
+}
+
+@media (max-width: 640px) {
+  .headerCommonBtn,
+  .firstHeaderSnsUploadBtn {
+    width: 5rem;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .secondHeaderInitialBtn {
+    width: 5rem;
+    padding: 0 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .secondHeaderCommonBtn {
+    width: 6rem;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.875rem;
+  }
 }
 
 .builderCaptureArea {
@@ -112,27 +179,20 @@
   align-items: center;
 }
 
-.builderBoardContainerWrapper {
-  width: fit-content;
-  margin: 0 auto 3rem;
+@media (max-width: 1024px) {
+  .argumentInputWrapper {
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 8px;
+  }
 }
 
-.builderBoardContainer {
-  display: grid;
-  grid-template-columns: repeat(7, 100px);
-  grid-template-rows: repeat(4, 116px);
-  gap: 0 0.25rem;
-  width: fit-content;
-  margin: 0 auto;
-  transform: translateX(-25px);
-}
+@media (max-width: 640px) {
+  .argumentInputWrapper {
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 6px;
+  }
 
-.hexagonWrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.offset {
-  transform: translateX(50%);
+  .argumentInputWrapper > div {
+    border-width: 1px;
+  }
 }

@@ -33,8 +33,45 @@
   height: 14rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .mainSection {
+    width: 90%;
+    margin: 1.5rem auto;
+  }
+
+  .searchBarContainer {
+    width: 85%;
+    height: 3rem;
+  }
+
+  .advSection {
+    height: 12rem;
+    margin-top: 2rem;
+  }
+
+  .advSection2 {
+    height: 10rem;
+  }
+}
+
+@media (max-width: 640px) {
   .mainSection {
     width: 95%;
+    margin: 1rem auto;
+  }
+
+  .searchBarContainer {
+    width: 95%;
+    height: 2.75rem;
+    font-size: 0.875rem;
+  }
+
+  .advSection {
+    height: 8rem;
+    margin-top: 1.5rem;
+  }
+
+  .advSection2 {
+    height: 7rem;
   }
 }
