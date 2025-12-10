@@ -27,7 +27,7 @@
     "html-to-image": "^1.11.13",
     "immer": "^10.1.1",
     "lucide-react": "^0.501.0",
-    "next": "15.4.7",
+    "next": "15.4.8",
     "rdndmb-html5-to-touch": "^9.0.0",
     "react": "^19",
     "react-dnd": "^16.0.1",
